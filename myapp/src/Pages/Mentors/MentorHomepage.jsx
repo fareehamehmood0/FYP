@@ -15,6 +15,7 @@ function MentorHomePage() {
       <AppHeader />
       <div className="SideMenuAndPageContent">
         <MentorSideBar />
+        <div className="PageContent">
         <Routes>
           <Route path="/" element={<MentorDashboard />}></Route>
           <Route path="/mentorprojects" element={<MentorProjects />}></Route>
@@ -22,6 +23,7 @@ function MentorHomePage() {
           <Route path="/contactus" element={<ContactUs />}></Route>
           <Route path="/mentorlogout" element={<MentorLogout />}></Route>
         </Routes>
+        </div>
       </div>
     </div>
     </>

@@ -28,12 +28,12 @@ import {
             },
             {
               label: "Projects",
-              key: "/mentorprojects",
+              key: "/studentprojects",
               icon: <ProfileOutlined />,
             },
             {
               label: "Events",
-              key: "/mentorevents",
+              key: "/studentevents",
               icon: <CalendarOutlined />,
             },
             {
@@ -43,7 +43,7 @@ import {
             },
             {
               label: "Logout",
-              key: "/mentorlogout",
+              key: "/studentlogout",
               icon: <LogoutOutlined />,
             },
             

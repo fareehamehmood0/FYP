@@ -13,21 +13,23 @@ import Logout from "./Logout";
 function HODHomePage() {
   return (
     <>
-    <div className="App">
-      <AppHeader />
-      <div className="SideMenuAndPageContent">
-        <SideBar />
-        <Routes>
-          <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/addsupervisor" element={<AddSupervisor />}></Route>
-          <Route path="/addstudent" element={<AddStudent />}></Route>
-          <Route path="/projects" element={<Projects/>}></Route>
-          <Route path="/events" element={<Events />}></Route>
-          <Route path="/contactus" element={<ContactUs />}></Route>
-          <Route path="/logout" element={<Logout />}></Route>
-        </Routes>
+      <div className="App">
+        <AppHeader />
+        <div className="SideMenuAndPageContent">
+          <SideBar />
+          <div className="PageContent">
+            <Routes>
+              <Route path="/" element={<Dashboard />}></Route>
+              <Route path="/addsupervisor" element={<AddSupervisor />}></Route>
+              <Route path="/addstudent" element={<AddStudent />}></Route>
+              <Route path="/projects" element={<Projects />}></Route>
+              <Route path="/events" element={<Events />}></Route>
+              <Route path="/contactus" element={<ContactUs />}></Route>
+              <Route path="/logout" element={<Logout />}></Route>
+            </Routes>
+          </div>
+        </div>
       </div>
-    </div>
     </>
   );
 }

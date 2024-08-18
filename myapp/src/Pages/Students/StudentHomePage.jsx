@@ -2,10 +2,10 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AppHeader from "../../Components/AppHeader";
 import StudentsSideBar from "./StudentSideBar";
-import StudentsDashboard from "./StudentDashboard";
-import StudentsProjects from "./StudentProjects";
+import StudentDashboard from "./StudentDashboard";
+import StudentProjects from "./StudentProjects";
 import StudentEvents from "./StudentEvents";
-import StudentsContactUs from "./StudentContactUs";
+import ContactUs from "./ContactUs";
 import StudentLogout from "./StudentLogout";
 
 function StudentHomePage() {
@@ -16,10 +16,10 @@ function StudentHomePage() {
       <div className="SideMenuAndPageContent">
         <StudentsSideBar />
         <Routes>
-          <Route path="/" element={<StudentsDashboard />}></Route>
-          <Route path="/studentsprojects" element={<StudentsProjects />}></Route>
-          <Route path="/studentsevents" element={< StudentEvents />}></Route>
-          <Route path="/studentscontactus" element={<StudentsContactUs />}></Route>
+          <Route path="/" element={<StudentDashboard />}></Route>
+          <Route path="/studentprojects" element={<StudentProjects />}></Route>
+          <Route path="/studentevents" element={< StudentEvents />}></Route>
+          <Route path="/contactus" element={<ContactUs />}></Route>
           <Route path="/studentlogout" element={<StudentLogout />}></Route>
         </Routes>
       </div>

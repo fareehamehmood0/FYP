@@ -75,6 +75,11 @@ const previousDiscussions = [
     description: "Details of discussion 3",
     date: "2024-08-03",
   },
+  {
+    title: "Discussion 4",
+    description: "Details of discussion 4",
+    date: "2024-08-03",
+  },
 ];
 
 const CardGrid = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 
-function StudentsProjects() {
+function StudentProjects() {
   return (
     <div>
-      Students Projects
+      Students
     </div>
   );
 }
 
-export default StudentsProjects;
+export default StudentProjects;
