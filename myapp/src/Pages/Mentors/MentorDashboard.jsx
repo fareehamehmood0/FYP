@@ -1,141 +1,78 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Col, Row, Carousel } from 'antd';
-import {
-  MessageOutlined,
-  BulbOutlined,
-  CalendarOutlined,
-  ClockCircleOutlined,
-} from '@ant-design/icons';
+import React from 'react';
+import { Layout, Card, Col, Row, List, Typography } from 'antd';
 
-const { Meta } = Card;
+const { Title } = Typography;
+const { Content, Sider } = Layout;
 
-// Data for random messages and custom facts
-const randomMessages = [
-  "Remember to review the students' projects!",
-  "Keep up the great work mentoring!",
-  "Check your schedule for upcoming meetings.",
-  "Stay motivated, you're doing an amazing job!",
-];
+const getGreetingMessage = () => {
+  const currentHour = new Date().getHours();
+  if (currentHour < 12) return 'Good Morning';
+  if (currentHour < 18) return 'Good Afternoon';
+  return 'Good Evening';
+};
 
-const customFacts = [
-  "Did you know? Mentoring can increase your own knowledge.",
-  "Fact: 70% of students perform better when mentored.",
-  "A mentor is someone who allows you to see the hope inside yourself.",
-  "Mentors are the key to unlocking a student’s potential.",
-];
-
-const upcomingData = [
-  {
-    title: 'Upcoming Meetings',
-    count: 5,
-    icon: <CalendarOutlined />,
-    description: 'Meetings scheduled in the near future.',
-  },
-  {
-    title: 'Events Within One Week',
-    count: 3,
-    icon: <ClockCircleOutlined />,
-    description: 'Events happening in the upcoming week.',
-  },
-];
-
+const projectManagementInfo = 'Manage your university and FYP projects efficiently.'; // Information for the mentor's project management
+const meetings = ['Project Update', 'Student Review']; // Example: upcoming meetings
+const events = ['Project Submission Deadline', 'Mentor Meeting']; // Example: upcoming events
 const previousDiscussions = [
-  {
-    title: "Discussion 1",
-    description: "Details of discussion 1",
-    date: "2024-08-01",
-  },
-  {
-    title: "Discussion 2",
-    description: "Details of discussion 2",
-    date: "2024-08-02",
-  },
-  {
-    title: "Discussion 3",
-    description: "Details of discussion 3",
-    date: "2024-08-03",
-  },
+  { title: 'Discussion 1', description: 'Details of discussion 1', date: '2024-08-18' },
+  { title: 'Discussion 2', description: 'Details of discussion 2', date: '2024-08-17' },
+  { title: 'Discussion 3', description: 'Details of discussion 3', date: '2024-08-16' },
 ];
 
-const CardGrid = () => {
-  const [randomMessage, setRandomMessage] = useState('');
-
-  useEffect(() => {
-    // Set a random message on component mount
-    setRandomMessage(randomMessages[Math.floor(Math.random() * randomMessages.length)]);
-  }, []);
-
+const MentorDashboard = () => {
   return (
-    <Row gutter={12} style={{ padding: '20px' }}>
-      {/* Main Content Column */}
-      <Col span={16}>
-        <Row gutter={[8, 8]}>
+    <Layout style={{ padding: '24px' }}>
+      <Content>
+        <Row gutter={[16, 16]}>
+          {/* First Row */}
           <Col span={12}>
-            <Card hoverable className="card" style={{ height: '100%', minHeight: '150px' }}>
-              <div className="card-content">
-                <div className="card-icon"><MessageOutlined /></div>
-                <Meta
-                  title="Random Message"
-                  description={randomMessage}
-                />
-              </div>
+            <Card title={getGreetingMessage()}>
+              <p>Welcome back! Ready to guide your students.</p>
             </Card>
           </Col>
           <Col span={12}>
-            <Card hoverable className="card" style={{ height: '100%', minHeight: '150px' }}>
-              <div className="card-content">
-                <div className="card-icon"><BulbOutlined /></div>
-                <Meta
-                  title="Custom Facts"
-                  description={
-                    <Carousel autoplay dots={false} style={{ minHeight: '60px', textAlign: 'center' }}>
-                      {customFacts.map((fact, index) => (
-                        <div key={index} style={{ padding: '10px', textAlign: 'center' }}>
-                          <p style={{ margin: 0 }}>{fact}</p>
-                        </div>
-                      ))}
-                    </Carousel>
-                  }
-                />
-              </div>
+            <Card title="University and FYP Project Management">
+              <p>{projectManagementInfo}</p>
             </Card>
           </Col>
-        </Row>
-        <Row gutter={[8, 8]} style={{ marginTop: '16px' }}>
-          {upcomingData.map((data, index) => (
-            <Col span={12} key={index}>
-              <Card hoverable className="card" style={{ height: '100%', minHeight: '150px' }}>
-                <div className="card-content">
-                  <div className="card-icon">{data.icon}</div>
-                  <Meta
-                    title={data.title}
-                    description={data.description}
-                  />
-                </div>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Col>
 
-      {/* Previous Discussions Column */}
-      <Col span={6}>
-        <Card title="Previous Discussions" bordered={false}>
-          {previousDiscussions.map((discussion, index) => (
-            <Card
-              type="inner"
-              title={discussion.title}
-              extra={<span>{discussion.date}</span>}
-              style={{ marginBottom: '16px' }}
-              key={index}
-            >
-              <p>{discussion.description}</p>
+          {/* Second Row */}
+          <Col span={12}>
+            <Card title="Upcoming Meetings">
+              <List
+                dataSource={meetings}
+                renderItem={(item) => <List.Item>{item}</List.Item>}
+              />
             </Card>
-          ))}
-        </Card>
-      </Col>
-    </Row>
+          </Col>
+          <Col span={12}>
+            <Card title="Upcoming Events">
+              <List
+                dataSource={events}
+                renderItem={(item) => <List.Item>{item}</List.Item>}
+              />
+            </Card>
+          </Col>
+        </Row>
+      </Content>
+
+      {/* Right Sidebar */}
+      <Sider width={300} style={{ background: '#fff', marginLeft: '16px' }}>
+        <Title level={4} style={{ padding: '16px' }}>Previous Discussions</Title>
+        {previousDiscussions.map((discussion, index) => (
+          <Card
+            key={index}
+            style={{ marginBottom: '16px' }}
+            title={discussion.title}
+            extra={<span>{discussion.date}</span>}
+          >
+            <p>{discussion.description}</p>
+          </Card>
+        ))}
+      </Sider>
+    </Layout>
   );
 };
 
-export default CardGrid;
+export default MentorDashboard;
