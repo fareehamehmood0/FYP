@@ -26,6 +26,7 @@ const AddStudent = () => {
           name="add_supervisor"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
+          requiredMark={false}  /* Disable the asterisk for required fields */
           initialValues={{
             gender: "Female",
           }}

@@ -27,6 +27,7 @@ const ContactUsForm = () => {
           name="contact_us"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
+          requiredMark={false}  /* Disable the asterisk for required fields */
           className="contact-us-form"
         >
           <Form.Item

@@ -9,6 +9,7 @@ import Events from "./Events";
 import ContactUs from "./ContactUs";
 import Dashboard from "./Dashboard";
 import Logout from "./Logout";
+import Issues from "./Issues";
 
 function HODHomePage() {
   return (
@@ -24,6 +25,7 @@ function HODHomePage() {
               <Route path="/addstudent" element={<AddStudent />}></Route>
               <Route path="/projects" element={<Projects />}></Route>
               <Route path="/events" element={<Events />}></Route>
+              <Route path="/issues" element={<Issues />}></Route>
               <Route path="/contactus" element={<ContactUs />}></Route>
               <Route path="/logout" element={<Logout />}></Route>
             </Routes>

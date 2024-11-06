@@ -7,9 +7,10 @@ import StudentHomePage from './Pages/Students/StudentHomePage';
 function App() {
   return (
     <>
-      <HODHomePage />
-      <MentorHomePage />
+      <HODHomePage/>
+      <MentorHomePage/>
       <StudentHomePage/>
+      
     </>
   );
 }

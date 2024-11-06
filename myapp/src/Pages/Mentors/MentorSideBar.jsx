@@ -3,6 +3,7 @@ import {
     HddOutlined,
     ProfileOutlined,
     CalendarOutlined,
+    ExceptionOutlined,
     MailOutlined,
     LogoutOutlined,
   } from "@ant-design/icons";
@@ -36,6 +37,12 @@ import {
               key: "/mentorevents",
               icon: <CalendarOutlined />,
             },
+            {
+              label: "Report",
+              key: "/mentoreport",
+              icon: <ExceptionOutlined />,
+            },
+            
             {
               label: "ContactUs",
               key: "/contactus",

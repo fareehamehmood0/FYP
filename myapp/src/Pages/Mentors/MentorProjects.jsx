@@ -1,142 +1,142 @@
-import React, { useState } from 'react';
-import { Card, Button, Progress, Typography, List, Input, Form } from 'antd';
-import { CommentOutlined, FileTextOutlined, FileDoneOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import { Button, Card, Row, Col, Modal, Form, Input, notification } from "antd";
 
-const { Title, Paragraph } = Typography;
-const { TextArea } = Input;
+// Sample project data with detailed proposals
+const projects = [
+  {
+    id: 1,
+    name: "Project A",
+    groupMembers: ["Alice", "Bob", "Charlie"],
+    intro: "A brief introduction to Project A.",
+    documentUrl: "https://example.com/project-a-document.pdf", // Link to PDF
+    proposal: {
+      title: "Project A Proposal",
+      description: "This is a detailed description of Project A.",
+      objective:
+        "To explore the capabilities of Project A in real-world applications.",
+    },
+  },
+  {
+    id: 2,
+    name: "Project B",
+    groupMembers: ["David", "Eve", "Frank"],
+    intro: "A brief introduction to Project B.",
+    documentUrl: "https://example.com/project-b-document.pdf", // Link to PDF
+    proposal: {
+      title: "Project B Proposal",
+      description: "This is a detailed description of Project B.",
+      objective:
+        "To analyze the effectiveness of Project B in various scenarios.",
+    },
+  },
+  {
+    id: 3,
+    name: "Project C",
+    groupMembers: ["Grace", "Heidi", "Ivan"],
+    intro: "A brief introduction to Project C.",
+    documentUrl: "https://example.com/project-c-document.pdf", // Link to PDF
+    proposal: {
+      title: "Project C Proposal",
+      description: "This is a detailed description of Project C.",
+      objective:
+        "To evaluate the outcomes of Project C in specific conditions.",
+    },
+  },
+];
 
-const ProjectPage = () => {
+const ProjectReviewPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [comments, setComments] = useState([]);
+  const [feedback, setFeedback] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const projects = [
-    {
-      id: '1',
-      name: 'Project A',
-      leader: 'Leader A',
-      members: ['Member A1', 'Member A2'],
-      progress: 70,
-      image: 'https://via.placeholder.com/150',
-      proposal: 'https://example.com/proposalA.pdf',
-      documentation: 'https://example.com/documentationA.pdf',
-      comments: ['Initial comment on Project A'],
-    },
-    {
-      id: '2',
-      name: 'Project B',
-      leader: 'Leader B',
-      members: ['Member B1', 'Member B2'],
-      progress: 50,
-      image: 'https://via.placeholder.com/150',
-      proposal: 'https://example.com/proposalB.pdf',
-      documentation: 'https://example.com/documentationB.pdf',
-      comments: [],
-    },
-    {
-      id: '3',
-      name: 'Project C',
-      leader: 'Leader C',
-      members: ['Member C1', 'Member C2'],
-      progress: 50,
-      image: 'https://via.placeholder.com/150',
-      proposal: 'https://example.com/proposalB.pdf',
-      documentation: 'https://example.com/documentationB.pdf',
-      comments: [],
-    },
-    // Add more projects as needed
-  ];
-
-  const showProjectDetails = (project) => {
+  const showModal = (project) => {
     setSelectedProject(project);
-    setComments(project.comments || []);
+    setIsModalVisible(true);
+    setFeedback(""); // Reset feedback when opening modal
   };
 
-  const handleAddComment = (values) => {
-    setComments([...comments, values.comment]);
-    // Typically, you would save the comment to a server here
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    setSelectedProject(null);
+  };
+
+  const handleFeedbackSubmit = () => {
+    // Logic to handle feedback submission
+    notification.success({
+      message: "Feedback Submitted",
+      description: `Your feedback for the document related to "${selectedProject?.name}" has been submitted. The student will be notified.`,
+    });
+    setFeedback("");
+    handleCancel();
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <Title level={3} style={{ marginBottom: 20 }}>Mentor's Projects</Title>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div style={{ padding: "20px" }}>
+      <h2>Student Projects</h2>
+      <Row gutter={16}>
         {projects.map((project) => (
-          <Card
-            key={project.id}
-            style={{ width: 300, margin: 10, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
-            cover={<img alt={project.name} src={project.image} />}
-            actions={[
-              <Button onClick={() => showProjectDetails(project)}>
+          <Col span={8} key={project.id}>
+            <Card title={project.name}>
+              <p>
+                <strong>Group Members:</strong>{" "}
+                {project.groupMembers.join(", ")}
+              </p>
+              <p>{project.intro}</p>
+              <Button type="primary" onClick={() => showModal(project)}>
                 View Details
-              </Button>,
-            ]}
-          >
-            <Card.Meta title={project.name} description={`Leader: ${project.leader}`} />
-            <Progress percent={project.progress} style={{ marginTop: 10 }} />
-          </Card>
+              </Button>
+            </Card>
+          </Col>
         ))}
-      </div>
+      </Row>
 
-      {selectedProject && (
-        <div style={{ 
-          marginTop: 30, 
-          padding: 20, 
-          border: '1px solid #f0f0f0', 
-          borderRadius: 10, 
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
-          backgroundColor: '#fafafa' 
-        }}>
-          <Title level={4} style={{ color: '#1f1f1f', marginBottom: 20 }}>Project Details</Title>
-          <Paragraph><strong>Leader:</strong> {selectedProject.leader}</Paragraph>
-          <Paragraph><strong>Members:</strong> {selectedProject.members.join(', ')}</Paragraph>
-          <Paragraph><strong>Progress:</strong> {selectedProject.progress}%</Paragraph>
+      <Modal
+        title={`Document Details for ${selectedProject?.name}`}
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleFeedbackSubmit}>
+            Submit Feedback
+          </Button>,
+        ]}
+      >
+        <h3>Project Details</h3>
+        <p>
+          <strong>Title:</strong> {selectedProject?.proposal.title}
+        </p>
+        <p>
+          <strong>Description:</strong> {selectedProject?.proposal.description}
+        </p>
+        <p>
+          <strong>Objective:</strong> {selectedProject?.proposal.objective}
+        </p>
 
-          <div style={{ marginTop: 20 }}>
-            <Title level={5} style={{ marginBottom: 10 }}>Proposal</Title>
-            <a href={selectedProject.proposal} target="_blank" rel="noopener noreferrer">
-              <Button icon={<FileTextOutlined />} type="primary" style={{ marginRight: 10 }}>
-                View Proposal
-              </Button>
-            </a>
-          </div>
+        <h3>Submitted Document</h3>
+        <p>
+          <strong>Document:</strong>
+          <a
+            href={selectedProject?.documentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            View Document PDF
+          </a>
+        </p>
 
-          <div style={{ marginTop: 20 }}>
-            <Title level={5} style={{ marginBottom: 10 }}>Documentation</Title>
-            <a href={selectedProject.documentation} target="_blank" rel="noopener noreferrer">
-              <Button icon={<FileDoneOutlined />} type="primary" style={{ marginRight: 10 }}>
-                View Documentation
-              </Button>
-            </a>
-          </div>
-
-          <div style={{ marginTop: 30 }}>
-            <Title level={5} style={{ marginBottom: 20 }}>Comments</Title>
-            <List
-              itemLayout="horizontal"
-              dataSource={comments}
-              renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    title={<CommentOutlined style={{ color: '#1890ff' }} />}
-                    description={item}
-                  />
-                </List.Item>
-              )}
+        <Form style={{ marginTop: "20px" }}>
+          <Form.Item label="Feedback on Document">
+            <Input.TextArea
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+              rows={4}
+              placeholder="Provide feedback on the document..."
             />
-
-            <Form onFinish={handleAddComment} style={{ marginTop: 20 }}>
-              <Form.Item name="comment">
-                <TextArea rows={4} placeholder="Add your comment here" />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit">Add Comment</Button>
-              </Form.Item>
-            </Form>
-          </div>
-        </div>
-      )}
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };
 
-export default ProjectPage;
+export default ProjectReviewPage;

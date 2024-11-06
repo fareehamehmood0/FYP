@@ -1,6 +1,7 @@
 import {
   AppstoreOutlined,
   HddOutlined,
+  IssuesCloseOutlined, 
   ProfileOutlined,
   UsergroupAddOutlined,
   UserAddOutlined,
@@ -12,57 +13,124 @@ import { Menu } from "antd";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function SideBar() {
-  const navigate = useNavigate ()
+  const navigate = useNavigate();
   return (
     <div className="SideMenu">
       <Menu
-       className="SideMenuVertical"
-      mode="vertical"
-      onClick={(item)=>{
-        //items.key
-        navigate(item.key)
-      }}
-          items={[
+        className="SideMenuVertical"
+        mode="vertical"
+        onClick={(item) => {
+          //items.key
+          navigate(item.key);
+        }}
+        items={[
           {
-            label: "Dashbaord",
-            icon: <AppstoreOutlined />,
+            label: "Home",
+            icon: (
+              <AppstoreOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
             key: "/",
           },
           {
             label: "AddSupervisor",
             key: "/addsupervisor",
-            icon: <UserAddOutlined />,
+            icon: (
+              <UserAddOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
           {
             label: "AddStudent",
             key: "/addstudent",
-            icon: <UsergroupAddOutlined />,
+            icon: (
+              <UsergroupAddOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
           {
             label: "Projects",
             key: "/projects",
-            icon: <ProfileOutlined />,
+            icon: (
+              <ProfileOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
           {
             label: "Events",
             key: "/events",
-            icon: <CalendarOutlined />,
+            icon: (
+              <CalendarOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
+          },
+          {
+            label: "Issues",
+            key: "/issues",
+            icon: (
+              <IssuesCloseOutlined 
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
           {
             label: "ContactUs",
             key: "/contactus",
-            icon: <MailOutlined />,
+            icon: (
+              <MailOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
           {
             label: "Logout",
             key: "/logout",
-            icon: <LogoutOutlined />,
+            icon: (
+              <LogoutOutlined
+                style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}
+              />
+            ),
           },
-          
         ]}
       ></Menu>
     </div>
   );
 }
 export default SideBar;
-

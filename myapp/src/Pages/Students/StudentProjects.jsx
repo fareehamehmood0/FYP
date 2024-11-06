@@ -1,129 +1,173 @@
-import React, { useState } from 'react';
-import { Card, Button, Upload, Form, Input, List } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import {
+  Card,
+  Form,
+  Input,
+  Button,
+  Upload,
+  List,
+  message,
+  notification,
+} from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 
-const StudentProjectPage = () => {
-    const [selectedProject, setSelectedProject] = useState(null);
+const App = () => {
+  const [view, setView] = useState("project"); // Controls which view is shown
+  const [feedbacks, setFeedbacks] = useState([
+    {
+      text: "Great start! Please add more details to the objectives.",
+      date: "2024-11-01",
+      time: "10:30 AM",
+    },
+    {
+      text: "Ensure you cover all major components in your description.",
+      date: "2024-11-02",
+      time: "02:45 PM",
+    },
+    {
+      text: "Consider adding a timeline for milestones.",
+      date: "2024-11-03",
+      time: "09:20 AM",
+    },
+  ]);
 
-    const projects = [
-        {
-            id: 1,
-            name: 'Project Alpha',
-            leader: 'John Doe',
-            members: ['Alice', 'Bob', 'Charlie'],
-            details: 'This is a description of Project Alpha.',
-            files: [],
-            feedback: [],
-        },
-        // Add more projects here
-    ];
+  const handleProposalSubmit = (values) => {
+    message.success("Proposal submitted successfully.");
+    console.log("Submitted Proposal Data:", values);
+    setView("project"); // Return to project display after submission
+    notification.info({
+      message: "Proposal Submitted",
+      description: "Your proposal has been submitted and is pending review.",
+    });
+  };
 
-    const handleProjectClick = (project) => {
-        setSelectedProject(project);
-    };
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 800,
+        margin: "20px auto",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      {view === "project" && (
+        <Card title="Project Details" bordered={false}>
+          <p>
+            <strong>Title:</strong> AI-Based Tutor System
+          </p>
+          <p>
+            <strong>Description:</strong> An intelligent system for personalized
+            tutoring.
+          </p>
+          <p>
+            <strong>Leader:</strong> John Doe
+          </p>
+          <p>
+            <strong>Status:</strong> Proposal Pending
+          </p>
+          <Button
+            type="primary"
+            onClick={() => setView("proposal")}
+            style={{ marginRight: 10 }}
+          >
+            Submit Proposal
+          </Button>
+          <Button onClick={() => setView("feedback")}>View Feedback</Button>
+        </Card>
+      )}
 
-    const handleFileUpload = (file) => {
-        // Handle file upload logic here
-    };
+      {view === "proposal" && (
+        <Card title="Submit Project Proposal" bordered={false}>
+          <Form layout="vertical" 
+           requiredMark={false}  /* Disable the asterisk for required fields */
+          onFinish={handleProposalSubmit}>
+            <Form.Item
+              label="Project Title"
+              name="title"
+              rules={[{ required: true, message: "Please enter the title" }]}
+            >
+              <Input placeholder="Enter project title" />
+            </Form.Item>
+            <Form.Item
+              label="Description"
+              name="description"
+              rules={[
+                { required: true, message: "Please enter the description" },
+              ]}
+            >
+              <Input.TextArea rows={4} placeholder="Describe your project" />
+            </Form.Item>
+            <Form.Item
+              label="Objectives"
+              name="objectives"
+              rules={[{ required: true, message: "Please enter objectives" }]}
+            >
+              <Input.TextArea rows={3} placeholder="Enter project objectives" />
+            </Form.Item>
+            <Form.Item
+              label="Attach Document"
+              name="document"
+              rules={[{ required: true, message: "Please upload a document" }]}
+            >
+              <Upload>
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              </Upload>
+            </Form.Item>
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  backgroundColor: "#4CAF50",
+                  borderColor: "#4CAF50",
+                  color: "#fff",
+                }}
+              >
+                Submit Proposal
+              </Button>
+              <Button
+                onClick={() => setView("project")}
+                style={{ marginLeft: 10 }}
+              >
+                Cancel
+              </Button>
+            </Form.Item>
+          </Form>
+        </Card>
+      )}
 
-    const handleSubmitFeedback = (values) => {
-        // Handle feedback submission logic here
-    };
-
-    return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            margin: '20px auto',
-            maxWidth: '1200px',
-            padding: '0 20px',
-        }}>
-            {projects.map((project) => (
-                <Card
-                    key={project.id}
-                    title={project.name}
-                    extra={<Button onClick={() => handleProjectClick(project)}>View Details</Button>}
-                    style={{
-                        width: '100%',
-                        marginBottom: '20px',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                        borderRadius: '8px',
-                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                    }}
-                    hoverable
-                    bodyStyle={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        padding: '16px',
-                    }}
-                >
-                    <p style={{ margin: '0 0 8px' }}><strong>Leader:</strong> {project.leader}</p>
-                    <p style={{ margin: '0 0 8px' }}><strong>Members:</strong> {project.members.join(', ')}</p>
-                    <p style={{ margin: '0' }}>{project.details}</p>
-                </Card>
-            ))}
-
-            {selectedProject && (
-                <div style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    marginTop: '30px',
-                }}>
-                    <Card style={{
-                        width: '100%',
-                        maxWidth: '800px',
-                        padding: '20px',
-                        backgroundColor: '#f9f9f9',
-                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                        borderRadius: '8px',
-                        textAlign: 'left',
-                    }}>
-                        <h2 style={{
-                            textAlign: 'center',
-                            fontSize: '24px',
-                            marginBottom: '20px',
-                            color: '#333',
-                        }}>{selectedProject.name} - Detailed Information</h2>
-                        <p style={{ margin: '0 0 10px' }}><strong>Leader:</strong> {selectedProject.leader}</p>
-                        <p style={{ margin: '0 0 10px' }}><strong>Members:</strong> {selectedProject.members.join(', ')}</p>
-                        <p style={{ margin: '0 0 20px' }}>{selectedProject.details}</p>
-
-                        <Form onFinish={handleFileUpload} style={{ marginBottom: '20px' }}>
-                            <Form.Item name="upload" label="Upload Files">
-                                <Upload multiple>
-                                    <Button icon={<UploadOutlined />}>Select Files</Button>
-                                </Upload>
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit" block>Submit</Button>
-                            </Form.Item>
-                        </Form>
-
-                        <h3 style={{ marginBottom: '10px' }}>Mentor Feedback</h3>
-                        <List
-                            dataSource={selectedProject.feedback}
-                            renderItem={(feedback) => (
-                                <List.Item>{feedback}</List.Item>
-                            )}
-                            style={{ marginBottom: '20px' }}
-                        />
-
-                        <Form onFinish={handleSubmitFeedback}>
-                            <Form.Item name="feedback" label="Your Feedback">
-                                <Input.TextArea rows={4} />
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit" block>Submit Feedback</Button>
-                            </Form.Item>
-                        </Form>
-                    </Card>
-                </div>
-            )}
-        </div>
-    );
+      {view === "feedback" && (
+        <Card title="Supervisor Feedback" bordered={false}>
+          {feedbacks.length > 0 ? (
+            <List
+              dataSource={feedbacks}
+              renderItem={(item, index) => (
+                <List.Item key={index}>
+                  <div>
+                    <p>
+                      <strong>Feedback:</strong> {item.text}
+                    </p>
+                    <p>
+                      <strong>Date:</strong> {item.date}
+                    </p>
+                    <p>
+                      <strong>Time:</strong> {item.time}
+                    </p>
+                  </div>
+                </List.Item>
+              )}
+            />
+          ) : (
+            <p>No feedback is available at this time.</p>
+          )}
+          <Button onClick={() => setView("project")} style={{ marginTop: 10 }}>
+            Back to Project
+          </Button>
+        </Card>
+      )}
+    </div>
+  );
 };
 
-export default StudentProjectPage;
+export default App;

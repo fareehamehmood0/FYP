@@ -2,7 +2,6 @@ import React from "react";
 import { Form, Input, Button, Select, Upload, Card } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
-
 const { Option } = Select;
 
 const AddSupervisor = () => {
@@ -26,6 +25,7 @@ const AddSupervisor = () => {
           name="add_supervisor"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
+          requiredMark={false}  /* Disable the asterisk for required fields */
           initialValues={{
             gender: "Female",
           }}

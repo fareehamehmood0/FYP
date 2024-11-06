@@ -5,6 +5,7 @@ import MentorSideBar from "./MentorSideBar";
 import MentorDashboard from "./MentorDashboard";
 import MentorProjects from "./MentorProjects";
 import MentorEvents from "./MentorEvents";
+import Mentorreport from "./Mentorreport";
 import ContactUs from "./ContactUs";
 import MentorLogout from "./MentorLogout";
 
@@ -20,6 +21,7 @@ function MentorHomePage() {
           <Route path="/" element={<MentorDashboard />}></Route>
           <Route path="/mentorprojects" element={<MentorProjects />}></Route>
           <Route path="/mentorevents" element={<MentorEvents />}></Route>
+          <Route path="/mentoreport" element={<Mentorreport />}></Route>
           <Route path="/contactus" element={<ContactUs />}></Route>
           <Route path="/mentorlogout" element={<MentorLogout />}></Route>
         </Routes>

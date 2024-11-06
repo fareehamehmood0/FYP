@@ -1,6 +1,5 @@
-// src/components/CardGrid.jsx
-import React from 'react';
-import { Card, Col, Row } from 'antd';
+import React from "react";
+import { Card, Col, Row } from "antd";
 import {
   UserOutlined,
   TeamOutlined,
@@ -9,83 +8,83 @@ import {
   CheckCircleOutlined,
   CalendarOutlined,
   ClockCircleOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 const { Meta } = Card;
 
 const cardData = [
   {
-    title: 'Total Students',
-    count: 120,
+    title: "Total Students",
+    count: 63,
     icon: <UserOutlined />,
   },
   {
-    title: 'Total Mentors',
-    count: 45,
+    title: "Total Mentors",
+    count: 6,
     icon: <TeamOutlined />,
   },
   {
-    title: 'Total Groups',
-    count: 300,
+    title: "Total Groups",
+    count: 23,
     icon: <TeamOutlined />,
   },
   {
-    title: 'Total Projects',
-    count: 8,
+    title: "Total Projects",
+    count: 23,
     icon: <DatabaseOutlined />,
   },
   {
-    title: 'Progress Projects',
-    count: 250,
+    title: "Progress Projects",
+    count: 13,
     icon: <PieChartOutlined />,
   },
   {
-    title: 'Finished Projects',
+    title: "Finished Projects",
     count: 10,
     icon: <CheckCircleOutlined />,
   },
-  // New cards with title and description
   {
-    title: 'Upcoming Meetings',
+    title: "Upcoming Meetings",
     count: 5,
     icon: <CalendarOutlined />,
-    description: 'Meetings scheduled in the near future.',
+    description: "Important Discussion  23, August 2024",
   },
   {
-    title: 'Events Within One Week',
+    title: "Events Within One Week",
     count: 3,
     icon: <ClockCircleOutlined />,
-    description: 'Events happening in the upcoming week.',
+    description: "Mentorship Meeting, Final Project Discussion",
   },
 ];
 
 const previousDiscussions = [
   {
-    title: "Discussion 1",
-    description: "Details of discussion 1",
+    title: "Guidance on Research Methodology",
+    description:
+      "Detailed discussion about Guidance on Research Methodolgy",
     date: "2024-08-01",
   },
   {
-    title: "Discussion 2",
-    description: "Details of discussion 2",
+    title: "Mentor Assignment Clarification",
+    description: "Clarifications regarding mentor assignment and guidance.",
     date: "2024-08-02",
   },
   {
-    title: "Discussion 3",
-    description: "Details of discussion 3",
+    title: "FYP Documentation Review",
+    description: "Discussion on reviewing the FYP documentation submitted.",
     date: "2024-08-03",
   },
   {
-    title: "Discussion 4",
-    description: "Details of discussion 4",
+    title: "Deadline Extensions ",
+    description: "Discussions around extending project deadlines.",
     date: "2024-08-03",
   },
 ];
 
 const CardGrid = () => {
   return (
-    <Row gutter={16} style={{ padding: '30px' }}>
-      <Col span={18}>
+    <Row gutter={16} style={{ padding: "30px" }}>
+      <Col span={16}>
         <Row gutter={16}>
           {cardData.slice(0, 6).map((data, index) => (
             <Col span={8} key={index}>
@@ -101,7 +100,7 @@ const CardGrid = () => {
             </Col>
           ))}
         </Row>
-        <Row gutter={16} style={{ marginTop: '24px' }}>
+        <Row gutter={16} style={{ marginTop: "24px" }}>
           {cardData.slice(6).map((data, index) => (
             <Col span={12} key={index}>
               <Card hoverable className="card">
@@ -117,26 +116,48 @@ const CardGrid = () => {
           ))}
         </Row>
       </Col>
-      <Col span={6}>
-        <Card title="Previous Discussions" bordered={false}>
+
+      {/* Right part for discussions */}
+      <Col span={8}>
+        <div
+          style={{
+            padding: "20px",
+            height: "auto", // Adjust based on content
+            backgroundColor: "#f0f2f5",
+            borderLeft: "1px solid #d9d9d9",
+            overflow: "hidden", // No scrollbar
+          }}
+        >
+          <h1
+            style={{
+              marginBottom: "20px",
+              fontSize: "25px",
+            }}
+          >
+            Previous Discussions
+          </h1>
           {previousDiscussions.map((discussion, index) => (
-            <Card
-              type="inner"
-              title={discussion.title}
-              extra={<span>{discussion.date}</span>}
-              style={{ marginBottom: '16px' }}
+            <div
               key={index}
+              style={{
+                backgroundColor: "white",
+                padding: "15px",
+                marginBottom: "16px",
+                borderRadius: "8px",
+                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)", // Slight shadow for a clean look
+              }}
             >
-              <p>{discussion.description}</p>
-            </Card>
+              <h3 style={{ margin: 0, fontSize: "16px", whiteSpace: "normal" }}>
+                {discussion.title}
+              </h3>
+              <p style={{ margin: "10px 0" }}>{discussion.description}</p>
+              <span>Date: {discussion.date}</span>
+            </div>
           ))}
-        </Card>
+        </div>
       </Col>
     </Row>
   );
 };
 
 export default CardGrid;
-
-
-

@@ -3,6 +3,7 @@ import {
     HddOutlined,
     ProfileOutlined,
     CalendarOutlined,
+    ExceptionOutlined,
     MailOutlined,
     LogoutOutlined,
   } from "@ant-design/icons";
@@ -23,7 +24,7 @@ import {
             items={[
             {
               label: "Dashbaord",
-              icon: <AppstoreOutlined />,
+              icon: <AppstoreOutlined style={{color:"blue", borderRadius:"12"}}/>,
               key: "/",
             },
             {
@@ -35,6 +36,11 @@ import {
               label: "Events",
               key: "/studentevents",
               icon: <CalendarOutlined />,
+            },
+            {
+              label: "Report",
+              key: "/studentreport",
+              icon: <ExceptionOutlined />,
             },
             {
               label: "ContactUs",

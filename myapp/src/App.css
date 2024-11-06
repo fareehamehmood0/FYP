@@ -12,6 +12,8 @@
   align-items: center;
   padding: 10px 20px 4px 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-left: 40px;
+  margin-right: 40px;
 }
 .SideMenuAndPageContent{
   display: flex;
@@ -24,6 +26,7 @@
   height: 100%;
   width: 200px;
  }
+
 .SideMenuVertical{
   height: 100%;
 }
@@ -138,7 +141,9 @@
 .contact-us-container {
   display: flex;
   align-items: flex-start;
-  padding: 20px;
+  padding: 100px;
+  margin-top: 20px;
+  padding-top: 10px;
   background-color: #f9f9f9;
   margin-left: 180px;
 }
@@ -165,3 +170,75 @@
   margin-top: 80px;
 
 }
+
+
+/*HOD Projects Page CSS*/
+.hod-project-page {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.ant-card-cover img {
+  object-fit: cover;
+  height:250px; /* Set image height */
+  width:100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.ant-card-meta-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ant-card-meta-description {
+  font-size: 14px;
+}
+
+.ant-progress {
+  margin-top: 10px;
+}
+
+.ant-card-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.ant-btn {
+  width: auto; /* Ensure buttons fit inside the card */
+}
+
+.ant-btn-danger {
+  background-color: #ff4d4f;
+}
+
+.ant-modal .ant-form-item {
+  margin-bottom: 15px;
+}
+
+.ant-modal-footer {
+  text-align: center;
+}
+
+.list-item a {
+  color: #1890ff;
+  text-decoration: underline;
+}
+
