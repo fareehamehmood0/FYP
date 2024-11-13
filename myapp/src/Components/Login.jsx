@@ -35,7 +35,7 @@ const Login = () => {
           style={{
             padding: "30px",
             background: "#fff",
-            borderRadius: "4px",
+            borderRadius: "2px",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
           }}
         >
@@ -92,7 +92,7 @@ const Login = () => {
         <img
           src="landing.webp" // Replace with your image URL
           alt="Login"
-          style={{ width: "100%", height: "400px", borderRadius: "4px" }}
+          style={{ width: "100%", height: "400px", borderRadius: "2px" }}
         />
       </Col>
     </Row>

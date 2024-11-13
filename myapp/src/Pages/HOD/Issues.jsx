@@ -7,20 +7,20 @@ const { Option } = Select;
 const AdminReportsPage = () => {
   const [reports, setReports] = useState([
     {
-      id: '1',
-      title: 'Issue with course content',
-      description: 'User reported an issue with the course material.',
-      severity: 'High',
-      status: 'Pending',
-      date: '2023-11-01',
+      id: "1",
+      title: "No response yet",
+      description: "I have not received any suggestion about my faults yet.",
+      severity: "High",
+      status: "Pending",
+      date: "2023-11-01",
     },
     {
-      id: '2',
-      title: 'Chat access issue',
-      description: 'User cannot access the chat feature.',
-      severity: 'Medium',
-      status: 'In Progress',
-      date: '2023-11-02',
+      id: "2",
+      title: "Feedback access issue",
+      description: "I cannot access the Feedbacks on yourside.",
+      severity: "Medium",
+      status: "In Progress",
+      date: "2023-11-02",
     },
     // Additional sample reports as needed
   ]);
@@ -54,38 +54,43 @@ const AdminReportsPage = () => {
   // Define table columns
   const columns = [
     {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
     },
     {
-      title: 'Severity',
-      dataIndex: 'severity',
-      key: 'severity',
+      title: "Severity",
+      dataIndex: "severity",
+      key: "severity",
       render: (severity) => {
-        const color = severity === 'High' ? 'red' : 'orange';
+        const color = severity === "High" ? "red" : "orange";
         return <Tag color={color}>{severity}</Tag>;
       },
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
       render: (status) => {
-        let color = status === 'Pending' ? 'volcano' : status === 'In Progress' ? 'blue' : 'green';
+        let color =
+          status === "Pending"
+            ? "volcano"
+            : status === "In Progress"
+            ? "blue"
+            : "green";
         return <Tag color={color}>{status}</Tag>;
       },
     },
     {
-      title: 'Date Submitted',
-      dataIndex: 'date',
-      key: 'date',
+      title: "Date Submitted",
+      dataIndex: "date",
+      key: "date",
     },
     {
-      title: 'Actions',
-      key: 'actions',
+      title: "Actions",
+      key: "actions",
       render: (text, record) => (
-        <Button type="link" onClick={() => showModal(record)}>
+        <Button type="primary" onClick={() => showModal(record)}>
           View Details
         </Button>
       ),
@@ -103,15 +108,19 @@ const AdminReportsPage = () => {
           backgroundColor: "#001529",
         }}
       >
-        <h2>Issues </h2>
+        <h2>Issues</h2>
       </Header>
       <Content style={{ padding: "20px 40px" }}>
         <Table
           dataSource={reports}
           columns={columns}
           rowKey="id"
-          pagination={{ pageSize: 5 }}
-          style={{ backgroundColor: "#ffffff", borderRadius: "8px", padding: "20px" }}
+          pagination={false} // Disabling pagination
+          style={{
+            backgroundColor: "#ffffff",
+            borderRadius: "8px",
+            padding: "20px",
+          }}
         />
 
         {/* Report Details Modal */}
@@ -121,7 +130,7 @@ const AdminReportsPage = () => {
             visible={isModalVisible}
             onCancel={handleCancel}
             footer={[
-              <Button key="close" onClick={handleCancel}>
+              <Button type="primary" key="close" onClick={handleCancel}>
                 Close
               </Button>,
               <Select

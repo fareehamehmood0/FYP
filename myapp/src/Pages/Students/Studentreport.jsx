@@ -67,18 +67,18 @@ const ReportPage = () => {
           justifyContent: "space-between",
           alignItems: "center",
           color: "white",
-          backgroundColor: "#001529",
+          backgroundColor: "#4D96FF",
           padding: "0 60px",
         }}
       >
-        <h2>Report Submission</h2>
+        <h2><b>Report Submission</b></h2>
         <Button
           type="primary"
           onClick={() =>
             setFormData({ title: "", description: "", severity: "" })
           }
         >
-          New Report
+         <b> New Report</b>
         </Button>
       </Header>
       <Content style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>

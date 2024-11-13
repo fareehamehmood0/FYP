@@ -24,33 +24,64 @@ import {
             items={[
             {
               label: "Dashbaord",
-              icon: <AppstoreOutlined style={{color:"blue", borderRadius:"12"}}/>,
+              icon: <AppstoreOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}
+            />,
               key: "/",
             },
             {
               label: "Projects",
               key: "/studentprojects",
-              icon: <ProfileOutlined />,
+              icon: <ProfileOutlined
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }} />,
             },
             {
               label: "Events",
               key: "/studentevents",
-              icon: <CalendarOutlined />,
+              icon: <CalendarOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "Report",
               key: "/studentreport",
-              icon: <ExceptionOutlined />,
+              icon: <ExceptionOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "ContactUs",
               key: "/contactus",
-              icon: <MailOutlined />,
+              icon: <MailOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "Logout",
               key: "/studentlogout",
-              icon: <LogoutOutlined />,
+              icon: <LogoutOutlined 
+              style={{
+                  color: "blue",
+                  backgroundColor: "rgb(#4B91FF)",
+                  fontSize: "20px",
+                }}/>,
             },
             
           ]}

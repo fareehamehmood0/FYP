@@ -34,7 +34,7 @@ const SignUp = () => {
         <img
           src="landing.webp" // Replace with your image URL
           alt="Signup"
-          style={{ width: "100%", height: "560px", borderRadius: "4px" }}
+          style={{ width: "100%", height: "560px", borderRadius: "2px" }}
         />
       </Col>
       <Col xs={24} sm={12} md={10} lg={8}>
@@ -42,7 +42,7 @@ const SignUp = () => {
           style={{
             padding: "30px",
             background: "#fff",
-            borderRadius: "4px",
+            borderRadius: "2px",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
           }}
         >
@@ -136,14 +136,14 @@ const SignUp = () => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" loading={loading} block>
+              <Button type="primary" size="large" htmlType="submit" loading={loading} block>
                 Sign Up
               </Button>
             </Form.Item>
           </Form>
           <div style={{ textAlign: "center", marginTop: "16px" }}>
             <Text>Already have an account? </Text>
-            <Link href="/login">Log in</Link>
+            <Link  size="large"  href="/login">Log in</Link>
           </div>
         </div>
       </Col>

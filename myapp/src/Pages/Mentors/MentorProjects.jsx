@@ -5,41 +5,40 @@ import { Button, Card, Row, Col, Modal, Form, Input, notification } from "antd";
 const projects = [
   {
     id: 1,
-    name: "Project A",
+    name: "PetPedia",
     groupMembers: ["Alice", "Bob", "Charlie"],
-    intro: "A brief introduction to Project A.",
+    intro: "A brief introduction to Petpedia.",
     documentUrl: "https://example.com/project-a-document.pdf", // Link to PDF
     proposal: {
-      title: "Project A Proposal",
-      description: "This is a detailed description of Project A.",
-      objective:
-        "To explore the capabilities of Project A in real-world applications.",
+      title: "Petpedia Proposal",
+      description: "This is a detailed description of Petpedia.",
+      objective: "To explore the capabilities of Petpedia in real-world.",
     },
   },
   {
     id: 2,
-    name: "Project B",
+    name: "Development",
     groupMembers: ["David", "Eve", "Frank"],
-    intro: "A brief introduction to Project B.",
+    intro: "A brief introduction to Development.",
     documentUrl: "https://example.com/project-b-document.pdf", // Link to PDF
     proposal: {
-      title: "Project B Proposal",
-      description: "This is a detailed description of Project B.",
+      title: "Development Proposal",
+      description: "This is a detailed description of development project.",
       objective:
-        "To analyze the effectiveness of Project B in various scenarios.",
+        "To analyze the effectiveness of Development Project  in various scenarios.",
     },
   },
   {
     id: 3,
-    name: "Project C",
+    name: "Cost Management",
     groupMembers: ["Grace", "Heidi", "Ivan"],
-    intro: "A brief introduction to Project C.",
+    intro: "A brief introduction to Cost Management .",
     documentUrl: "https://example.com/project-c-document.pdf", // Link to PDF
     proposal: {
       title: "Project C Proposal",
-      description: "This is a detailed description of Project C.",
+      description: "This is a detailed description of Cost Management.",
       objective:
-        "To evaluate the outcomes of Project C in specific conditions.",
+        "To evaluate the outcomes of Cost Management in specific conditions .",
     },
   },
 ];
@@ -71,8 +70,19 @@ const ProjectReviewPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Student Projects</h2>
+    <div style={{ padding: "10px" }}>
+      <div
+        style={{
+          //backgroundColor: "#4D96FF",
+          paddingTop: "1px",
+          paddingBottom: "1px",
+         // color: "white",
+          textAlign:"left",
+          fontSize:"30px",
+        }}
+      >
+        <h2>Student Projects</h2>
+      </div>
       <Row gutter={16}>
         {projects.map((project) => (
           <Col span={8} key={project.id}>
@@ -111,7 +121,6 @@ const ProjectReviewPage = () => {
           <strong>Objective:</strong> {selectedProject?.proposal.objective}
         </p>
 
-        <h3>Submitted Document</h3>
         <p>
           <strong>Document:</strong>
           <a
@@ -120,12 +129,12 @@ const ProjectReviewPage = () => {
             rel="noopener noreferrer"
           >
             {" "}
-            View Document PDF
+            View Document 
           </a>
         </p>
 
-        <Form style={{ marginTop: "20px" }}>
-          <Form.Item label="Feedback on Document">
+        <Form style={{ marginTop: "20px", fontWeight:"bold" }}>
+          <Form.Item label="Feedback ">
             <Input.TextArea
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}

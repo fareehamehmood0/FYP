@@ -7,38 +7,41 @@ import "react-datepicker/dist/react-datepicker.css";
 const projects = [
   {
     id: 1,
-    name: "Project A",
+    name: "Petpedia",
     groupMembers: ["Alice", "Bob", "Charlie"],
-    intro: "A brief introduction to Project A.",
+    intro: "A brief introduction to Petpedia.",
     documentUrl: "https://example.com/project-a-document.pdf",
     proposal: {
-      title: "Project A Proposal",
-      description: "This is a detailed description of Project A.",
-      objective: "To explore the capabilities of Project A in real-world applications.",
+      title: "Petpedia",
+      description: "This is a detailed description on Petpedia.",
+      objective:
+        "To explore the capabilities on Petpedia in real-world applications.",
     },
   },
   {
     id: 2,
-    name: "Project B",
+    name: "Development",
     groupMembers: ["David", "Eve", "Frank"],
-    intro: "A brief introduction to Project B.",
+    intro: "A brief introduction to Development Project .",
     documentUrl: "https://example.com/project-b-document.pdf",
     proposal: {
-      title: "Project B Proposal",
-      description: "This is a detailed description of Project B.",
-      objective: "To analyze the effectiveness of Project B in various scenarios.",
+      title: "Development Proposal",
+      description: "This is a detailed description of Development Project .",
+      objective:
+        "To analyze the effectiveness of Development project in various scenarios.",
     },
   },
   {
     id: 3,
-    name: "Project C",
+    name: " Cost Management",
     groupMembers: ["Grace", "Heidi", "Ivan"],
-    intro: "A brief introduction to Project C.",
+    intro: "A brief introduction to Cost Management.",
     documentUrl: "https://example.com/project-c-document.pdf",
     proposal: {
-      title: "Project C Proposal",
-      description: "This is a detailed description of Project C.",
-      objective: "To evaluate the outcomes of Project C in specific conditions.",
+      title: "Cost Mangement Proposal",
+      description: "This is a detailed description of Cost Management.",
+      objective:
+        "To evaluate the outcomes of Cost Management in specific conditions.",
     },
   },
 ];
@@ -87,8 +90,19 @@ const ProjectReviewPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Student Projects</h2>
+    <div style={{ padding: "20px", }}>
+      <div
+        style={{
+         // backgroundColor: "#4D96FF",
+          paddingTop: "1px",
+          paddingBottom: "1px",
+          //color: "white",
+          textAlign: "left",
+          fontSize: "30px",
+        }}
+      >
+        <h2>Student Projects</h2>
+      </div>
       <Row gutter={16}>
         {projects.map((project) => (
           <Col span={8} key={project.id}>
@@ -168,7 +182,7 @@ const ProjectReviewPage = () => {
           </Button>,
         ]}
       >
-        <Form layout="vertical">
+        <Form layout="vertical" requiredMark={false}  >
           <Form.Item label="Select Date and Time" required>
             <DatePicker
               selected={meetingDate}

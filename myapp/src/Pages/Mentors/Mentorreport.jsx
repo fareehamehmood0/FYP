@@ -67,8 +67,9 @@ const ReportPage = () => {
           justifyContent: "space-between",
           alignItems: "center",
           color: "white",
-          backgroundColor: "#001529",
+          backgroundColor: "#4D96FF",
           padding: "0 60px",
+          marginLeft:"14px"
         }}
       >
         <h2>Report Submission</h2>
@@ -78,7 +79,7 @@ const ReportPage = () => {
             setFormData({ title: "", description: "", severity: "" })
           }
         >
-          New Report
+          <b>New Report</b>
         </Button>
       </Header>
       <Content style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
@@ -88,7 +89,7 @@ const ReportPage = () => {
             <span
               style={{ color: "black", fontSize: "25px", fontWeight: "bold", }}
             >
-              Submit a New Report
+               Submit a New Report
             </span>
           }
           bordered={false}

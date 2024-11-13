@@ -36,11 +36,10 @@ const EventsPage = () => {
         description: "Initial meeting to discuss project goals and milestones.",
       },
       {
-        name: "Dacumentation Review",
+        name: "Proposal Review",
         date: moment().subtract(1, "days").format("YYYY-MM-DD"),
         time: "14:00",
-        description:
-          "Review Dacumentation progress and make necessary adjustments.",
+        description: "Review Proposal progress and make necessary adjustments.",
       },
     ];
     setEvents(defaultEvents);
@@ -115,12 +114,21 @@ const EventsPage = () => {
     <Layout style={{ padding: "24px" }}>
       <Content>
         {/* Heading */}
-        <div style={{ marginBottom: "24px" }}>
+        <div
+          style={{
+            marginBottom: "24px",
+            backgroundColor: "#4D96FF",
+            color: "white",
+            textAlign: "center",
+            paddingTop: "2px",
+            paddingBottom: "2px",
+          }}
+        >
           <h1>Events Management</h1>
         </div>
 
         {/* All Created Events */}
-        <div style={{ marginBottom: "24px" }}>
+        <div style={{ marginBottom: "34px", fontSize: "25px" }}>
           <h2>All Created Events</h2>
           <List
             grid={{ gutter: 16, column: 3 }}
@@ -154,7 +162,7 @@ const EventsPage = () => {
         </div>
 
         {/* Today's Events */}
-        <div style={{ marginBottom: "24px" }}>
+        <div style={{ marginBottom: "24px", fontSize: "25px" }}>
           <h2>Today Created Events</h2>
           <List
             grid={{ gutter: 16, column: 3 }}
@@ -191,12 +199,13 @@ const EventsPage = () => {
         <div style={{ marginBottom: "24px" }}>
           <Button
             type="primary"
+            size="large"
             onClick={() => setCalendarVisible(true)}
             style={{ marginRight: "8px" }}
           >
             Create New Event
           </Button>
-          <Button type="default" onClick={handleExportEvents}>
+          <Button type="default" size="large" onClick={handleExportEvents}>
             Export Events
           </Button>
         </div>
@@ -233,9 +242,12 @@ const EventsPage = () => {
           onCancel={() => setCalendarVisible(false)}
           footer={null}
         >
-          <Form form={form} 
-          requiredMark={false}  /* Disable the asterisk for required fields */
-          layout="vertical" onFinish={handleCreateEvent}>
+          <Form
+            form={form}
+            requiredMark={false} /* Disable the asterisk for required fields */
+            layout="vertical"
+            onFinish={handleCreateEvent}
+          >
             <Form.Item
               name="name"
               label="Event Name"

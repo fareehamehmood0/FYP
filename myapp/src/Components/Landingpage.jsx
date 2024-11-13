@@ -20,15 +20,16 @@ const LandingPage = () => {
         {/* Right side text and buttons */}
 
         <Col xs={24} md={12} style={styles.landingContent}>
-          <Title level={2}>
+          <Title level={2}><b>
             Welcome to Final Year Project Management System
+            </b>
           </Title>
           <Paragraph>
             "Collabora" is a solution time problem that occur in FYP. It is a
             dream for us coming true as such system do not exist in our IT
             industry.
           </Paragraph>
-          <Paragraph>If you are admin then signup otherwise just login.</Paragraph>
+          <Paragraph><b>If you are admin then signup otherwise just login.</b></Paragraph>
           <div style={styles.buttonGroup}>
             <Button type="primary" size="large" style={{ marginRight: "10px" }}>
               Sign Up

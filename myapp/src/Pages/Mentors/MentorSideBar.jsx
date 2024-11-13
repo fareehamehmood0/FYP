@@ -24,34 +24,65 @@ import {
             items={[
             {
               label: "Dashbaord",
-              icon: <AppstoreOutlined />,
+              icon: <AppstoreOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}
+              />,
               key: "/",
             },
             {
               label: "Projects",
               key: "/mentorprojects",
-              icon: <ProfileOutlined />,
+              icon: <ProfileOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "Events",
               key: "/mentorevents",
-              icon: <CalendarOutlined />,
+              icon: <CalendarOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "Report",
               key: "/mentoreport",
-              icon: <ExceptionOutlined />,
+              icon: <ExceptionOutlined
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }} />,
             },
             
             {
               label: "ContactUs",
               key: "/contactus",
-              icon: <MailOutlined />,
+              icon: <MailOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             {
               label: "Logout",
               key: "/mentorlogout",
-              icon: <LogoutOutlined />,
+              icon: <LogoutOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
             },
             
           ]}
