@@ -32,15 +32,15 @@ const SignUp = () => {
     >
       <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
         <img
-          src="signup1.jpg" // Replace with your image URL
+          src="signup1.jpg"
           alt="Signup"
-          style={{ width: "100%", height: "560px", borderRadius: "2px" }}
+          style={{ width: "100%", height: "528px", borderRadius: "2px" }}
         />
       </Col>
       <Col xs={24} sm={12} md={10} lg={8}>
         <div
           style={{
-            padding: "30px",
+            padding: "10px",
             background: "#fff",
             borderRadius: "2px",
           }}
@@ -56,14 +56,12 @@ const SignUp = () => {
             initialValues={{ remember: true }}
           >
             <Form.Item
-              name="username"
-              label="Username"
+              name="name"
+              label="Name"
               hasFeedback
-              rules={[
-                { required: true, message: "Please enter your username!" },
-              ]}
+              rules={[{ required: true, message: "Please enter your name!" }]}
             >
-              <Input prefix={<UserOutlined />} placeholder="Username" />
+              <Input prefix={<UserOutlined />} placeholder="Name" />
             </Form.Item>
 
             <Form.Item
@@ -130,19 +128,29 @@ const SignUp = () => {
                         ),
                 },
               ]}
-            >
-              <Checkbox>I agree to the terms and conditions</Checkbox>
-            </Form.Item>
+            ></Form.Item>
 
-            <Form.Item>
-              <Button type="primary" size="large" htmlType="submit" loading={loading} block>
+            <Form.Item
+              style={{
+                marginTop: "-10px", 
+              }}
+            >
+              <Button
+                type="primary"
+                size="large"
+                htmlType="submit"
+                loading={loading}
+                block
+              >
                 Sign Up
               </Button>
             </Form.Item>
           </Form>
           <div style={{ textAlign: "center", marginTop: "16px" }}>
             <Text>Already have an account? </Text>
-            <Link  size="large"  href="/login">Log in</Link>
+            <Link size="large" href="/login">
+              Log in
+            </Link>
           </div>
         </div>
       </Col>

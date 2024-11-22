@@ -29,6 +29,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }}
               />,
               key: "/",
@@ -41,6 +42,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }}/>,
             },
             {
@@ -51,6 +53,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }}/>,
             },
             {
@@ -61,6 +64,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }}/>,
             },
             {
@@ -71,6 +75,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }} />,
             },
           
@@ -82,6 +87,7 @@ import {
                 color: "blue",
                 backgroundColor: "rgb(#4B91FF)",
                 fontSize: "20px",
+                marginLeft:"20px",
               }}/>,
             },
             

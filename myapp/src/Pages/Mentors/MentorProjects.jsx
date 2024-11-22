@@ -156,7 +156,7 @@ const ProjectReviewPage = () => {
                 View Details
               </Button>
               <Button
-                style={{ marginLeft: "40px" }}
+                style={{ marginLeft: "20px" }}
                 type="default"
                 size="large"
                 onClick={() => showSendProposalModal(project)}

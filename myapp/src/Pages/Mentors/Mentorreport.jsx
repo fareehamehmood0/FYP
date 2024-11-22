@@ -60,26 +60,33 @@ const ReportPage = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh", backgroundColor: "#f0f2f5" }}>
+    <Layout
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#f0f2f5",
+        marginLeft: "100px",
+      }}
+    >
       <Header
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          color: "white",
+          color: "black",
+          fontSize: "20px",
           backgroundColor: "#4D96FF",
-          padding: "0 60px",
-          marginLeft:"14px"
         }}
       >
-        <h2>Report Submission</h2>
+        <h2>
+          <b>Report Submission</b>
+        </h2>
         <Button
           type="primary"
           onClick={() =>
             setFormData({ title: "", description: "", severity: "" })
           }
         >
-          <b>New Report</b>
+          <b> New Report</b>
         </Button>
       </Header>
       <Content style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
@@ -87,9 +94,9 @@ const ReportPage = () => {
         <Card
           title={
             <span
-              style={{ color: "black", fontSize: "25px", fontWeight: "bold", }}
+              style={{ color: "black", fontSize: "25px", fontWeight: "bold" }}
             >
-               Submit a New Report
+              Submit a New Report
             </span>
           }
           bordered={false}

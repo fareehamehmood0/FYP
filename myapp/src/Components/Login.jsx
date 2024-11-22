@@ -49,21 +49,17 @@ const Login = () => {
             initialValues={{ remember: true }}
           >
             <Form.Item
-              name="username"
-              label="Username"
-              rules={[
-                { required: true, message: "Please enter your username!" },
-              ]}
+              name="name"
+              label="Name"
+              rules={[{ required: true, message: "Please enter your name!" }]}
             >
-              <Input prefix={<UserOutlined />} placeholder="Username" />
+              <Input prefix={<UserOutlined />} placeholder="Name" />
             </Form.Item>
 
             <Form.Item
               name="password"
               label="Password"
-              rules={[
-                { required: true, message: "Please enter your password!" },
-              ]}
+              rules={[{ required: true, message: "Please enter your password!" }]}
             >
               <Input.Password
                 prefix={<LockOutlined />}
@@ -71,8 +67,19 @@ const Login = () => {
               />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
+            <Form.Item>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Checkbox name="remember" defaultChecked>
+                  Remember me
+                </Checkbox>
+                <Link href="/forgot-password">Forgot Password?</Link>
+              </div>
             </Form.Item>
 
             <Form.Item>
@@ -81,6 +88,7 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
+
           <div style={{ textAlign: "center", marginTop: "16px" }}>
             <Text>Don't have an account? </Text>
             <Link href="/signup">Sign up</Link>
@@ -89,7 +97,7 @@ const Login = () => {
       </Col>
       <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
         <img
-          src="login.png" // Replace with your image URL
+          src="login.png" 
           alt="Login"
           style={{ width: "100%", height: "400px", borderRadius: "2px" }}
         />

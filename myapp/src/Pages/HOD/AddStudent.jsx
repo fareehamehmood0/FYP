@@ -25,26 +25,16 @@ const AddStudent = () => {
           name="add_supervisor"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          requiredMark={false} /* Disable the asterisk for required fields */
+          requiredMark={false} 
           initialValues={{
-            gender: "Female",
+            role: "student",
           }}
         >
           <Form.Item
-            label="First Name"
-            name="firstName"
+            label="Name"
+            name="name"
             rules={[
-              { required: true, message: "Please input your first name!" },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Last Name"
-            name="lastName"
-            rules={[
-              { required: true, message: "Please input your last name!" },
+              { required: true, message: "Please input  complete name!" },
             ]}
           >
             <Input />
@@ -62,21 +52,12 @@ const AddStudent = () => {
           </Form.Item>
 
           <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item
-            label="Gender"
-            name="gender"
-            rules={[{ required: true, message: "Please select your gender!" }]}
+            label="Role"
+            name="role"
+            rules={[{ required: true, message: "Please select role here!" }]}
           >
             <Select>
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
+              <Option value="student">Student</Option>
             </Select>
           </Form.Item>
 
@@ -106,16 +87,8 @@ const AddStudent = () => {
             </Upload>
           </Form.Item>
 
-          <Form.Item
-            label="Address"
-            name="address"
-            rules={[{ required: true, message: "Please input your address!" }]}
-          >
-            <Input.TextArea rows={4} />
-          </Form.Item>
-
           <Form.Item>
-            <Button className="button" type="primary" block htmlType="submit">
+            <Button className="button" type="primary" size="large" block htmlType="submit">
               Add Student
             </Button>
           </Form.Item>

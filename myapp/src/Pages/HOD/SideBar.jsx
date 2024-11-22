@@ -32,6 +32,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -46,6 +47,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -59,6 +61,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -72,6 +75,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -85,6 +89,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -98,12 +103,13 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
           },
           {
-            label: "ContactUs",
+            label: "Contact Us",
             key: "/contactus",
             icon: (
               <MailOutlined
@@ -111,6 +117,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
@@ -124,6 +131,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
+                  marginLeft:"20px",
                 }}
               />
             ),
