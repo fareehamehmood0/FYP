@@ -1,210 +1,158 @@
 import React, { useState } from "react";
-import { Button, Card, Row, Col, Modal, Form, Input, notification } from "antd";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { Card, Col, Row, Modal } from "antd";
+import { CalendarOutlined, InfoCircleOutlined } from "@ant-design/icons";
 
-// Sample project data with detailed proposals
-const projects = [
+const { Meta } = Card;
+
+// Sample data for events
+const events = [
   {
     id: 1,
-    name: "Petpedia",
-    groupMembers: ["Alice", "Bob", "Charlie"],
-    intro: "A brief introduction to Petpedia.",
-    documentUrl: "https://example.com/project-a-document.pdf",
-    proposal: {
-      title: "Petpedia",
-      description: "This is a detailed description on Petpedia.",
-      objective:
-        "To explore the capabilities on Petpedia in real-world applications.",
-    },
+    title: " Workshop",
+    date: "2024-08-25",
+    location: "Room 201, Building 1",
+    description:
+      "An in-depth workshop on React.js, covering hooks, state management, and component lifecycle.",
+    type: "new", // Event type (new or previous)
   },
   {
     id: 2,
-    name: "Development",
-    groupMembers: ["David", "Eve", "Frank"],
-    intro: "A brief introduction to Development Project .",
-    documentUrl: "https://example.com/project-b-document.pdf",
-    proposal: {
-      title: "Development Proposal",
-      description: "This is a detailed description of Development Project .",
-      objective:
-        "To analyze the effectiveness of Development project in various scenarios.",
-    },
+    title: "Mentorship Meetup",
+    date: "2024-08-27",
+    location: "Room 301, Building 2",
+    description:
+      "A meetup for mentors and mentees to discuss progress and future goals.",
+    type: "new",
   },
   {
     id: 3,
-    name: " Cost Management",
-    groupMembers: ["Grace", "Heidi", "Ivan"],
-    intro: "A brief introduction to Cost Management.",
-    documentUrl: "https://example.com/project-c-document.pdf",
-    proposal: {
-      title: "Cost Mangement Proposal",
-      description: "This is a detailed description of Cost Management.",
-      objective:
-        "To evaluate the outcomes of Cost Management in specific conditions.",
-    },
+    title: "Final Project Presentation",
+    date: "2024-09-01",
+    location: "Main Auditorium",
+    description:
+      "Students will present their final projects to mentors and peers.",
+    type: "new",
+  },
+  {
+    id: 4,
+    title: "Introduction to AI",
+    date: "2024-07-15",
+    location: "Room 101, Building 3",
+    description:
+      "A basic introduction to AI concepts, including machine learning and neural networks.",
+    type: "previous",
+  },
+  {
+    id: 5,
+    title: "Python for Data Science",
+    date: "2024-07-20",
+    location: "Room 102, Building 2",
+    description:
+      "An overview of Python libraries and tools used in data science.",
+    type: "previous",
   },
 ];
 
-const ProjectReviewPage = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [feedback, setFeedback] = useState("");
+const EventsPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isMeetingModalVisible, setIsMeetingModalVisible] = useState(false);
-  const [meetingDate, setMeetingDate] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const showModal = (project) => {
-    setSelectedProject(project);
+  const showModal = (event) => {
+    setSelectedEvent(event);
     setIsModalVisible(true);
-    setFeedback(""); // Reset feedback when opening modal
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
-    setSelectedProject(null);
   };
 
-  const handleFeedbackSubmit = () => {
-    notification.success({
-      message: "Feedback Submitted",
-      description: `Your feedback for the document related to "${selectedProject?.name}" has been submitted. The student will be notified.`,
-    });
-    setFeedback("");
-    handleCancel();
-  };
-
-  const handleScheduleMeeting = (project) => {
-    setSelectedProject(project);
-    setIsMeetingModalVisible(true);
-  };
-
-  const handleMeetingSubmit = () => {
-    const date = meetingDate ? meetingDate.toLocaleString() : "not specified";
-    notification.success({
-      message: "Meeting Scheduled",
-      description: `A meeting has been scheduled with the group members of "${selectedProject?.name}" on ${date}. The student has been notified.`,
-    });
-    setMeetingDate(null);
-    setIsMeetingModalVisible(false);
-    handleCancel();
-  };
+  // Filter events by type
+  const newEvents = events.filter((event) => event.type === "new");
+  const previousEvents = events.filter((event) => event.type === "previous");
 
   return (
-    <div style={{ padding: "20px", }}>
-      <div
-        style={{
-         // backgroundColor: "#4D96FF",
-          paddingTop: "1px",
-          paddingBottom: "1px",
-          //color: "white",
-          textAlign: "left",
-          fontSize: "30px",
-        }}
-      >
-        <h2>Student Projects</h2>
+    <div style={{ padding: "20px", marginLeft: "40px" }}>
+      <div style={{ fontSize: "25px" }}>
+        <h2>New Events</h2>
       </div>
-      <Row gutter={16}>
-        {projects.map((project) => (
-          <Col span={8} key={project.id}>
-            <Card title={project.name}>
-              <p>
-                <strong>Group Members:</strong>{" "}
-                {project.groupMembers.join(", ")}
-              </p>
-              <p>{project.intro}</p>
-              <Button type="primary" onClick={() => showModal(project)}>
-                View Details
-              </Button>
-              <Button
-                style={{ marginTop: "10px" }}
-                onClick={() => handleScheduleMeeting(project)}
-              >
-                Schedule Meeting
-              </Button>
+      <Row gutter={[16, 16]}>
+        {newEvents.map((event) => (
+          <Col span={8} key={event.id}>
+            <Card
+              hoverable
+              style={{ height: "100%" }}
+              onClick={() => showModal(event)}
+            >
+              <Meta
+                title={event.title}
+                description={
+                  <>
+                    <div>
+                      <CalendarOutlined /> {event.date}
+                    </div>
+                    <div>
+                      <InfoCircleOutlined /> {event.location}
+                    </div>
+                  </>
+                }
+              />
             </Card>
           </Col>
         ))}
       </Row>
 
-      <Modal
-        title={`Document Details for ${selectedProject?.name}`}
-        visible={isModalVisible}
-        onCancel={handleCancel}
-        footer={[
-          <Button key="submit" type="primary" onClick={handleFeedbackSubmit}>
-            Submit Feedback
-          </Button>,
-        ]}
-      >
-        <h3>Project Details</h3>
-        <p>
-          <strong>Title:</strong> {selectedProject?.proposal.title}
-        </p>
-        <p>
-          <strong>Description:</strong> {selectedProject?.proposal.description}
-        </p>
-        <p>
-          <strong>Objective:</strong> {selectedProject?.proposal.objective}
-        </p>
+      <h2 style={{ marginTop: "40px", fontSize: "25px" }}>Previous Events</h2>
+      <Row gutter={[16, 16]}>
+        {previousEvents.map((event) => (
+          <Col span={8} key={event.id}>
+            <Card
+              hoverable
+              style={{ height: "100%" }}
+              onClick={() => showModal(event)}
+            >
+              <Meta
+                title={event.title}
+                description={
+                  <>
+                    <div>
+                      <CalendarOutlined /> {event.date}
+                    </div>
+                    <div>
+                      <InfoCircleOutlined /> {event.location}
+                    </div>
+                  </>
+                }
+              />
+            </Card>
+          </Col>
+        ))}
+      </Row>
 
-        <h3>Submitted Document</h3>
-        <p>
-          <strong>Document:</strong>
-          <a
-            href={selectedProject?.documentUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {" "}
-            View Document PDF
-          </a>
-        </p>
-
-        <Form style={{ marginTop: "20px" }}>
-          <Form.Item label="Feedback on Document">
-            <Input.TextArea
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-              rows={4}
-              placeholder="Provide feedback on the document..."
-            />
-          </Form.Item>
-        </Form>
-      </Modal>
-
-      <Modal
-        title={`Schedule Meeting for ${selectedProject?.name}`}
-        visible={isMeetingModalVisible}
-        onCancel={() => setIsMeetingModalVisible(false)}
-        footer={[
-          <Button key="submit" type="primary" onClick={handleMeetingSubmit}>
-            Schedule Meeting
-          </Button>,
-        ]}
-      >
-        <Form layout="vertical" requiredMark={false}  >
-          <Form.Item label="Select Date and Time" required>
-            <DatePicker
-              selected={meetingDate}
-              onChange={(date) => setMeetingDate(date)}
-              showTimeSelect
-              timeFormat="HH:mm"
-              timeIntervals={15}
-              dateFormat="Pp"
-              placeholderText="Select date and time"
-              style={{ width: "100%" }}
-            />
-          </Form.Item>
-          <Form.Item label="Meeting Purpose (Optional)">
-            <Input.TextArea
-              placeholder="Describe the purpose of the meeting..."
-              rows={3}
-            />
-          </Form.Item>
-        </Form>
-      </Modal>
+      {selectedEvent && (
+        <Modal
+          title={selectedEvent.title}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          footer={null}
+        >
+          <p>
+            <strong>Date:</strong> {selectedEvent.date}
+          </p>
+          <p>
+            <strong>Location:</strong> {selectedEvent.location}
+          </p>
+          <p>
+            <strong>Description:</strong> {selectedEvent.description}
+          </p>
+        </Modal>
+      )}
     </div>
   );
 };
 
-export default ProjectReviewPage;
+export default EventsPage;

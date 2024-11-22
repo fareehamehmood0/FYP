@@ -77,7 +77,7 @@ const StudentDashboard = () => {
               }
               style={cardStyle}
             >
-              <p>You have {tasks} tasks assigned by your mentor.</p>
+              <p>You have {tasks} tasks assigned by your Supervisor.</p>
             </Card>
           </Col>
 

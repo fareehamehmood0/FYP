@@ -1,6 +1,6 @@
 import {
     AppstoreOutlined,
-    HddOutlined,
+    GithubOutlined,
     ProfileOutlined,
     CalendarOutlined,
     ExceptionOutlined,
@@ -54,6 +54,16 @@ import {
               }}/>,
             },
             {
+              label: "GitHub",
+              key: "/github",
+              icon: <GithubOutlined
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
+            },
+            {
               label: "Report",
               key: "/studentreport",
               icon: <ExceptionOutlined 
@@ -63,16 +73,7 @@ import {
                 fontSize: "20px",
               }}/>,
             },
-            {
-              label: "ContactUs",
-              key: "/contactus",
-              icon: <MailOutlined 
-              style={{
-                color: "blue",
-                backgroundColor: "rgb(#4B91FF)",
-                fontSize: "20px",
-              }}/>,
-            },
+            
             {
               label: "Logout",
               key: "/studentlogout",

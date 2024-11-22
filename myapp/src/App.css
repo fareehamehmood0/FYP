@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Spicy+Rice&display=swap');
 .App{
   display: flex;
   flex-direction: column;
@@ -6,6 +6,15 @@
   height: 100vh;
   
 }
+
+.css {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+
 .AppHeader{
   height: 80px;
   display: flex;
@@ -36,7 +45,7 @@
 }
 
 
-/* Dashbord CSS src/components/CardGrid.css */
+/* Dashbord CSS */
 .card-grid {
   padding: 20px;
 }
@@ -62,13 +71,13 @@
 }
 
 .card-icon {
-  font-size: 48px; /* Larger icon size for better visibility */
-  color: #1890ff; /* Icon color */
-  margin-bottom: 16px; /* Space between icon and title */
+  font-size: 48px; 
+  color: #1890ff; 
+  margin-bottom: 16px; 
 }
 
 .ant-card-body {
-  padding: 20px; /* Padding inside card */
+  padding: 20px; 
 }
 
 .ant-card-meta-title {
@@ -82,11 +91,11 @@
 }
 
 .ant-row {
-  margin-bottom: -16px; /* Adjust spacing to ensure no extra space between rows */
+  margin-bottom: -16px;
 }
 
 .ant-col {
-  padding-bottom: 16px; /* Add padding to ensure cards don’t touch each other */
+  padding-bottom: 16px; 
 }
 
 
@@ -137,8 +146,12 @@
   object-fit: cover;
   height: 150px;
 }
+.button{
+  border-color: #1890ff;
+}
 
-/* src/components/ContactUsForm.css */
+
+/* ContactUsForm CSS */
 .contact-us-container {
   display: flex;
   align-items: flex-start;
@@ -223,7 +236,7 @@
 }
 
 .ant-btn {
-  width: auto; /* Ensure buttons fit inside the card */
+  width: auto; 
 }
 
 .ant-btn-danger {

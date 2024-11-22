@@ -36,7 +36,6 @@ const Login = () => {
             padding: "30px",
             background: "#fff",
             borderRadius: "2px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
           }}
         >
           <Title level={3} style={{ textAlign: "center" }}>
@@ -90,7 +89,7 @@ const Login = () => {
       </Col>
       <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
         <img
-          src="landing.webp" // Replace with your image URL
+          src="login.png" // Replace with your image URL
           alt="Login"
           style={{ width: "100%", height: "400px", borderRadius: "2px" }}
         />

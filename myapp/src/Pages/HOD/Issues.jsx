@@ -104,8 +104,9 @@ const AdminReportsPage = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          color: "white",
-          backgroundColor: "#001529",
+          color: "black",
+          fontSize: "30px",
+          backgroundColor: "#4D96FF",
         }}
       >
         <h2>Issues</h2>
@@ -115,7 +116,7 @@ const AdminReportsPage = () => {
           dataSource={reports}
           columns={columns}
           rowKey="id"
-          pagination={false} // Disabling pagination
+          pagination={false}
           style={{
             backgroundColor: "#ffffff",
             borderRadius: "8px",

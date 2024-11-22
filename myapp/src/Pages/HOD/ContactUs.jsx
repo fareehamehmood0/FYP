@@ -27,7 +27,7 @@ const ContactUs = () => {
           name="contact_us"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          requiredMark={false}  /* Disable the asterisk for required fields */
+          requiredMark={false} /* Disable the asterisk for required fields */
           className="contact-us-form"
         >
           <Form.Item
@@ -73,7 +73,14 @@ const ContactUs = () => {
         </Form>
       </div>
       <div className="image-content">
-        <img src="contactus.png" alt="Contact Us" />
+        <img
+          src="contactus12.png"
+          alt="Contact Us"
+          style={{
+            height:"500px",
+            width:"100%",
+          }}
+        />
       </div>
     </div>
   );

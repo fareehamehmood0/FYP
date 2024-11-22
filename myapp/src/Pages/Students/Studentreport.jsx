@@ -66,7 +66,8 @@ const ReportPage = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          color: "white",
+          color: "black",
+          fontSize:"20px",
           backgroundColor: "#4D96FF",
           padding: "0 60px",
         }}

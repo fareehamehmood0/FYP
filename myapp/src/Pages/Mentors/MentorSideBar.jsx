@@ -44,6 +44,16 @@ import {
               }}/>,
             },
             {
+              label: "Schedule Meeting",
+              key: "/schedulemeeting",
+              icon: <CalendarOutlined 
+              style={{
+                color: "blue",
+                backgroundColor: "rgb(#4B91FF)",
+                fontSize: "20px",
+              }}/>,
+            },
+            {
               label: "Events",
               key: "/mentorevents",
               icon: <CalendarOutlined 
@@ -63,17 +73,7 @@ import {
                 fontSize: "20px",
               }} />,
             },
-            
-            {
-              label: "ContactUs",
-              key: "/contactus",
-              icon: <MailOutlined 
-              style={{
-                color: "blue",
-                backgroundColor: "rgb(#4B91FF)",
-                fontSize: "20px",
-              }}/>,
-            },
+          
             {
               label: "Logout",
               key: "/mentorlogout",

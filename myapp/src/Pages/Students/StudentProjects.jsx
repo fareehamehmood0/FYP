@@ -54,14 +54,16 @@ const App = () => {
       {view === "project" && (
         <Card title="Project Details" bordered={false}>
           <p>
-            <strong>Title:</strong> AI-Based Tutor System
+            <strong>Title:</strong> Communication Era
           </p>
           <p>
-            <strong>Description:</strong> An intelligent system for personalized
-            tutoring.
+            <strong>Description:</strong> To explore and analyze the evolution
+            of communication technologies and their impact on society. And to
+            develop innovative solutions for enhancing modern communication
+            methods, making them more efficient and accessible.
           </p>
           <p>
-            <strong>Leader:</strong> John Doe
+            <strong>Leader:</strong> Samaiya
           </p>
           <p>
             <strong>Status:</strong> Proposal Pending
@@ -79,9 +81,11 @@ const App = () => {
 
       {view === "proposal" && (
         <Card title="Submit Project Proposal" bordered={false}>
-          <Form layout="vertical" 
-           requiredMark={false}  /* Disable the asterisk for required fields */
-          onFinish={handleProposalSubmit}>
+          <Form
+            layout="vertical"
+            requiredMark={false} /* Disable the asterisk for required fields */
+            onFinish={handleProposalSubmit}
+          >
             <Form.Item
               label="Project Title"
               name="title"
@@ -118,9 +122,8 @@ const App = () => {
               <Button
                 type="primary"
                 htmlType="submit"
+                size="large"
                 style={{
-                  backgroundColor: "#4CAF50",
-                  borderColor: "#4CAF50",
                   color: "#fff",
                 }}
               >
@@ -129,6 +132,7 @@ const App = () => {
               <Button
                 onClick={() => setView("project")}
                 style={{ marginLeft: 10 }}
+                size="large"
               >
                 Cancel
               </Button>

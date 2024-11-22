@@ -1,84 +1,136 @@
 import React, { useState } from "react";
-import { Button, Card, Row, Col, Modal, Form, Input, notification } from "antd";
+import {
+  Button,
+  Card,
+  Row,
+  Col,
+  Modal,
+  Form,
+  Input,
+  Upload,
+  notification,
+} from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 
-// Sample project data with detailed proposals
+// Sample project data
 const projects = [
   {
     id: 1,
-    name: "PetPedia",
-    groupMembers: ["Alice", "Bob", "Charlie"],
-    intro: "A brief introduction to Petpedia.",
-    documentUrl: "https://example.com/project-a-document.pdf", // Link to PDF
+    name: "Communication Era",
+    groupMembers: ["Alina", "Bushra", "Charlis"],
+    intro:
+      "To explore and analyze the evolution of communication technologies and their impact on society.",
+    documentUrl: "https://example.com/project-a-document.pdf",
     proposal: {
-      title: "Petpedia Proposal",
-      description: "This is a detailed description of Petpedia.",
-      objective: "To explore the capabilities of Petpedia in real-world.",
+      title: "Communication Era Proposal",
+      description:
+        "This is a detailed description of communication Era Proposal.",
+      objective: "For checking.",
     },
+    image: "img8.jpg",
   },
   {
     id: 2,
     name: "Development",
-    groupMembers: ["David", "Eve", "Frank"],
-    intro: "A brief introduction to Development.",
-    documentUrl: "https://example.com/project-b-document.pdf", // Link to PDF
+    groupMembers: ["Daoud", "Elina", "Fareeha"],
+    intro:
+      "To study the impact of technological advancements on development processes and outcomes.",
+    documentUrl: "https://example.com/project-b-document.pdf",
     proposal: {
       title: "Development Proposal",
-      description: "This is a detailed description of development project.",
-      objective:
-        "To analyze the effectiveness of Development Project  in various scenarios.",
+      description:
+        "This is a detailed description of the development project Proposal.",
+      objective: "For checking.",
     },
+    image: "img4.webp",
   },
   {
     id: 3,
     name: "Cost Management",
-    groupMembers: ["Grace", "Heidi", "Ivan"],
-    intro: "A brief introduction to Cost Management .",
-    documentUrl: "https://example.com/project-c-document.pdf", // Link to PDF
+    groupMembers: ["Gulzar", "Heina", "Iram"],
+    intro:
+      "To develop strategies for effectively planning, controlling, and reducing project or operational costs.",
+    documentUrl: "https://example.com/project-c-document.pdf",
     proposal: {
-      title: "Project C Proposal",
-      description: "This is a detailed description of Cost Management.",
-      objective:
-        "To evaluate the outcomes of Cost Management in specific conditions .",
+      title: "Cost Management Proposal",
+      description:
+        "This is a detailed description of Cost Management Proposal.",
+      objective: "For checking.",
     },
+    image: "img5.jpg",
   },
 ];
 
 const ProjectReviewPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [feedback, setFeedback] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState(null);
 
-  const showModal = (project) => {
+  const [isViewModalVisible, setIsViewModalVisible] = useState(false);
+  const [isSendProposalVisible, setIsSendProposalVisible] = useState(false);
+
+  const showViewModal = (project) => {
     setSelectedProject(project);
-    setIsModalVisible(true);
-    setFeedback(""); // Reset feedback when opening modal
+    setIsViewModalVisible(true);
+  };
+
+  const showSendProposalModal = (project) => {
+    setSelectedProject(project);
+    setIsSendProposalVisible(true);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setIsViewModalVisible(false);
+    setIsSendProposalVisible(false);
     setSelectedProject(null);
+    setFeedback("");
+    setUploadedFile(null); // Reset uploaded file
   };
 
   const handleFeedbackSubmit = () => {
-    // Logic to handle feedback submission
     notification.success({
       message: "Feedback Submitted",
-      description: `Your feedback for the document related to "${selectedProject?.name}" has been submitted. The student will be notified.`,
+      description: `Your feedback for "${selectedProject?.name}" has been submitted successfully.`,
     });
-    setFeedback("");
+    handleCancel();
+  };
+
+  const handleFileUpload = (info) => {
+    if (info.file.status === "done") {
+      setUploadedFile(info.file);
+      notification.success({
+        message: "File Uploaded",
+        description: `File "${info.file.name}" uploaded successfully.`,
+      });
+    }
+  };
+
+  const handleSendProposal = () => {
+    if (!uploadedFile) {
+      notification.error({
+        message: "No File Uploaded",
+        description: "Please upload a file before sending the proposal.",
+      });
+      return;
+    }
+
+    notification.success({
+      message: "Proposal Sent",
+      description: `The proposal for "${selectedProject?.name}" has been successfully shared with the HOD.`,
+    });
+
     handleCancel();
   };
 
   return (
-    <div style={{ padding: "10px" }}>
+    <div style={{ padding: "0px" }}>
       <div
         style={{
-          //backgroundColor: "#4D96FF",
-          paddingTop: "1px",
-          paddingBottom: "1px",
-         // color: "white",
-          textAlign:"left",
-          fontSize:"30px",
+          paddingTop: "0px",
+          paddingBottom: "0px",
+          textAlign: "center",
+          fontSize: "30px",
+          backgroundColor: "#4D96FF",
         }}
       >
         <h2>Student Projects</h2>
@@ -86,23 +138,40 @@ const ProjectReviewPage = () => {
       <Row gutter={16}>
         {projects.map((project) => (
           <Col span={8} key={project.id}>
-            <Card title={project.name}>
+            <Card
+              title={project.name}
+              cover={<img alt={project.name} src={project.image} />}
+            >
               <p>
                 <strong>Group Members:</strong>{" "}
                 {project.groupMembers.join(", ")}
               </p>
               <p>{project.intro}</p>
-              <Button type="primary" onClick={() => showModal(project)}>
+              <Button
+                type="primary"
+                size="large"
+                style={{ marginRight: "25px" }}
+                onClick={() => showViewModal(project)}
+              >
                 View Details
+              </Button>
+              <Button
+                style={{ marginLeft: "40px" }}
+                type="default"
+                size="large"
+                onClick={() => showSendProposalModal(project)}
+              >
+                Send Proposal
               </Button>
             </Card>
           </Col>
         ))}
       </Row>
 
+      {/* View Details Modal */}
       <Modal
-        title={`Document Details for ${selectedProject?.name}`}
-        visible={isModalVisible}
+        title={` Details for ${selectedProject?.name}`}
+        visible={isViewModalVisible}
         onCancel={handleCancel}
         footer={[
           <Button key="submit" type="primary" onClick={handleFeedbackSubmit}>
@@ -115,32 +184,50 @@ const ProjectReviewPage = () => {
           <strong>Title:</strong> {selectedProject?.proposal.title}
         </p>
         <p>
-          <strong>Description:</strong> {selectedProject?.proposal.description}
-        </p>
-        <p>
           <strong>Objective:</strong> {selectedProject?.proposal.objective}
         </p>
-
         <p>
-          <strong>Document:</strong>
+          <strong>Document:</strong>{" "}
           <a
             href={selectedProject?.documentUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {" "}
-            View Document 
+            View Document
           </a>
         </p>
-
-        <Form style={{ marginTop: "20px", fontWeight:"bold" }}>
-          <Form.Item label="Feedback ">
+        <Form style={{ marginTop: "20px", fontWeight: "bold" }}>
+          <Form.Item label="Feedback">
             <Input.TextArea
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
               rows={4}
               placeholder="Provide feedback on the document..."
             />
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* Send Proposal Modal */}
+      <Modal
+        title={`Send Proposal for ${selectedProject?.name}`}
+        visible={isSendProposalVisible}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="send" type="primary" onClick={handleSendProposal}>
+            Send Proposal
+          </Button>,
+        ]}
+      >
+        <Form>
+          <Form.Item label="Upload File">
+            <Upload
+              accept=".pdf,.doc,.docx"
+              beforeUpload={() => false} // Prevent automatic upload
+              onChange={handleFileUpload}
+            >
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
           </Form.Item>
         </Form>
       </Modal>

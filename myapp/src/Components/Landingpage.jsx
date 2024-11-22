@@ -1,80 +1,90 @@
 import React from "react";
-import { Button, Row, Col, Typography } from "antd";
+import { Typography, Button, Space } from "antd";
 
 const { Title, Paragraph } = Typography;
 
 const LandingPage = () => {
+  const styles = {
+    landingPage: {
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+      height: "100vh",
+      background: `url("landingpg.png") no-repeat center center/cover`,
+      position: "relative",
+    },
+    textContainer: {
+      maxWidth: "500px",
+      marginRight: "50px",
+      padding: "20px",
+      borderRadius: "10px",
+      backgroundColor:"white",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
+      textAlign: "Left",
+      position: "absolute",
+      right: "50px",
+    },
+    title: {
+      color: "#4D96FF",
+      fontSize: "40px",
+      marginTop:"50px",
+    },
+    paragraph: {
+      color: "#4D96FF",
+      fontSize: "18px",
+    },
+    buttonGroup: {
+      marginTop: "10px",
+      marginBottom:"50px",
+    },
+  };
+
   return (
     <div style={styles.landingPage}>
-      <Row gutter={16} style={styles.landingRow}>
-        {/* Left side image */}
-        <Col xs={24} md={12} style={styles.landingImage}>
-          <img
-            src="landing.webp"
-            height="100"
-            alt="Landing"
-            style={styles.image}
-          />
-        </Col>
-
-        {/* Right side text and buttons */}
-
-        <Col xs={24} md={12} style={styles.landingContent}>
-          <Title level={2}><b>
-            Welcome to Final Year Project Management System
-            </b>
-          </Title>
-          <Paragraph>
-            "Collabora" is a solution time problem that occur in FYP. It is a
-            dream for us coming true as such system do not exist in our IT
-            industry.
-          </Paragraph>
-          <Paragraph><b>If you are admin then signup otherwise just login.</b></Paragraph>
-          <div style={styles.buttonGroup}>
-            <Button type="primary" size="large" style={{ marginRight: "10px" }}>
-              Sign Up
-            </Button>
-            <Button size="large">Login</Button>
-          </div>
-        </Col>
-      </Row>
+      <div style={styles.textContainer}>
+        <Title className="css" level={1} style={styles.title}>
+          <b>Welcome to Collabora</b>
+        </Title>
+        
+        <Paragraph className="css" style={styles.paragraph}>
+          Hi, there come to manage your projects effectively. Join us to
+          streamline your workflow and achieve your goals.
+        </Paragraph>
+        <Paragraph className="css" style={styles.paragraph}>
+          If you are an Admin then Signup otherwise just Login.
+        </Paragraph>
+    
+        <Space style={styles.buttonGroup}>
+          <Button
+          className="css"
+            style={{
+              backgroundColor: "#4D96FF",
+              borderColor: "#34368A",
+              color: "#fff",
+              fontSize:"20px",
+              
+            }}
+            type="primary"
+            size="large"
+          >
+            Sign Up
+          </Button>
+          <Button
+          className="css"
+            style={{
+              backgroundColor: "#4D96FF",
+              borderColor: "#34368A",
+              color: "#fff",
+              fontSize:"20px",
+            }}
+            size="large"
+          >
+            Log In
+          </Button>
+        </Space>
+      </div>
     </div>
   );
-};
-
-// Inline CSS styles
-const styles = {
-  landingPage: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-  },
-  landingRow: {
-    width: "100%",
-    maxWidth: "1200px",
-  },
-  landingImage: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: "100%",
-    height: "auto",
-    maxWidth: "500px",
-  },
-  landingContent: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    padding: "20px",
-  },
-  buttonGroup: {
-    marginTop: "20px",
-  },
 };
 
 export default LandingPage;

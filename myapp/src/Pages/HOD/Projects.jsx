@@ -137,7 +137,7 @@ const FYPProjects = () => {
     },
     {
       id: 7,
-      name: "IPO",
+      name: "Initial Public Offering (IPO)",
       status: "Completed",
       membersCount: 5,
       leader: "Grace",
@@ -157,13 +157,13 @@ const FYPProjects = () => {
     },
     {
       id: 9,
-      name: "SHA",
+      name: "Smart Home Automation (SHA)",
       status: "Completed",
       membersCount: 2,
       leader: "Ivy",
       mentor: "Ms. Green",
       image: "SHA.jpg",
-      proposal: "Proposal document content for Project I",
+      proposal: "Proposal document content for Smart Home Automation (SHA)",
     },
     {
       id: 10,
@@ -255,14 +255,16 @@ const FYPProjects = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "0px" }}>
       <h1
         style={{
           textAlign: "center",
           marginTop: "0px",
+          paddingBottom:"15px",
+          paddingTop:"15px",
           marginBottom: "30px",
           backgroundColor: "#4D96FF",
-          color: "white",
+          color: "black",
         }}
       >
         Projects
@@ -347,8 +349,10 @@ const FYPProjects = () => {
         onCancel={handleCancelProposalModal}
         footer={null}
       >
+        
         {viewingProposal && (
           <div>
+            
             <p>{viewingProposal.proposal}</p>
             <Button
               type="primary"

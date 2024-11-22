@@ -32,7 +32,7 @@ const SignUp = () => {
     >
       <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
         <img
-          src="landing.webp" // Replace with your image URL
+          src="signup1.jpg" // Replace with your image URL
           alt="Signup"
           style={{ width: "100%", height: "560px", borderRadius: "2px" }}
         />
@@ -43,7 +43,6 @@ const SignUp = () => {
             padding: "30px",
             background: "#fff",
             borderRadius: "2px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
           }}
         >
           <Title level={3} style={{ textAlign: "center" }}>

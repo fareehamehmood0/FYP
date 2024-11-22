@@ -118,7 +118,7 @@ const EventsPage = () => {
           style={{
             marginBottom: "24px",
             backgroundColor: "#4D96FF",
-            color: "white",
+            color: "black",
             textAlign: "center",
             paddingTop: "2px",
             paddingBottom: "2px",

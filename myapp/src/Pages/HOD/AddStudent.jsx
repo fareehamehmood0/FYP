@@ -115,7 +115,7 @@ const AddStudent = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" block htmlType="submit">
+            <Button className="button" type="primary" block htmlType="submit">
               Add Student
             </Button>
           </Form.Item>
