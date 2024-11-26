@@ -65,6 +65,7 @@ const ProjectReviewPage = () => {
             backgroundColor: "#4D96FF",
             paddingBottom: "10px",
             textAlign: "center",
+            color:"white",
           }}
         >
           Student's Meeting Schedule

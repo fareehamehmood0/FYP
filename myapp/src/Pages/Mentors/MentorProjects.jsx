@@ -12,7 +12,7 @@ import {
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
-// Sample project data
+
 const projects = [
   {
     id: 1,
@@ -131,6 +131,7 @@ const ProjectReviewPage = () => {
           textAlign: "center",
           fontSize: "30px",
           backgroundColor: "#4D96FF",
+          color:"white",
         }}
       >
         <h2>Student Projects</h2>

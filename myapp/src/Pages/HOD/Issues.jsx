@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
 
-const IssueReportsPage = () => {
+const Issues = () => {
   
   const issues = [
     {
@@ -78,7 +78,7 @@ const IssueReportsPage = () => {
   );
 };
 
-// Custom Styles
+
 const styles = {
   container: {
     marginLeft: '180px',
@@ -92,7 +92,7 @@ const styles = {
     backgroundColor:"#1890ff",
     marginBottom: '20px',
     fontSize: '2rem',
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     textTransform: 'uppercase',
   },
@@ -100,8 +100,7 @@ const styles = {
     backgroundColor: '#ffffff',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     borderRadius: '8px',
-    overflow: 'hidden',
   },
 };
 
-export default IssueReportsPage;
+export default Issues;

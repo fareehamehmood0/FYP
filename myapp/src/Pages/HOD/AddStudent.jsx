@@ -9,6 +9,7 @@ const AddStudent = () => {
 
   const onFinish = (values) => {
     console.log("Form Values:", values);
+    form.resetFields();
   };
 
   const onFinishFailed = (errorInfo) => {

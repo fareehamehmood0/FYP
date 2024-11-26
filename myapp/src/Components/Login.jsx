@@ -30,7 +30,7 @@ const Login = () => {
       align="middle"
       style={{ minHeight: "100vh", background: "#f0f2f5" }}
     >
-      <Col xs={24} sm={12} md={10} lg={8}>
+      <Col lg={8}>
         <div
           style={{
             padding: "30px",
@@ -38,7 +38,7 @@ const Login = () => {
             borderRadius: "2px",
           }}
         >
-          <Title level={3} style={{ textAlign: "center" }}>
+          <Title level={2} style={{ textAlign: "center", color:"#4D96FF" }}>
             Log In
           </Title>
           <Form
@@ -95,15 +95,14 @@ const Login = () => {
           </div>
         </div>
       </Col>
-      <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
+      <Col  lg={8} style={{ textAlign: "center" }}>
         <img
           src="login.png" 
           alt="Login"
-          style={{ width: "100%", height: "400px", borderRadius: "2px" }}
+          style={{ width: "100%", height: "408px", borderRadius: "2px" }}
         />
       </Col>
     </Row>
   );
 };
-
 export default Login;

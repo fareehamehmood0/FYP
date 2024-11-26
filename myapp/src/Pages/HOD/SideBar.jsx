@@ -1,7 +1,7 @@
 import {
   AppstoreOutlined,
   HddOutlined,
-  IssuesCloseOutlined, 
+  IssuesCloseOutlined,
   ProfileOutlined,
   UsergroupAddOutlined,
   UserAddOutlined,
@@ -32,7 +32,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
@@ -47,7 +47,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
@@ -61,7 +61,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
@@ -75,7 +75,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
@@ -89,7 +89,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
@@ -98,30 +98,17 @@ function SideBar() {
             label: "Issues",
             key: "/issues",
             icon: (
-              <IssuesCloseOutlined 
+              <IssuesCloseOutlined
                 style={{
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),
           },
-          {
-            label: "Contact Us",
-            key: "/contactus",
-            icon: (
-              <MailOutlined
-                style={{
-                  color: "blue",
-                  backgroundColor: "rgb(#4B91FF)",
-                  fontSize: "20px",
-                  marginLeft:"20px",
-                }}
-              />
-            ),
-          },
+
           {
             label: "Logout",
             key: "/logout",
@@ -131,7 +118,7 @@ function SideBar() {
                   color: "blue",
                   backgroundColor: "rgb(#4B91FF)",
                   fontSize: "20px",
-                  marginLeft:"20px",
+                  marginLeft: "20px",
                 }}
               />
             ),

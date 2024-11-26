@@ -74,11 +74,7 @@ const previousDiscussions = [
     description: "Discussion on reviewing the FYP documentation submitted.",
     date: "2024-08-03",
   },
-  {
-    title: "Deadline Extensions ",
-    description: "Discussions around extending project deadlines.",
-    date: "2024-08-03",
-  },
+ 
 ];
 
 const CardGrid = () => {
@@ -108,7 +104,7 @@ const CardGrid = () => {
                   <div className="card-icon">{data.icon}</div>
                   <Meta
                     title={data.title}
-                    description={data.description} // Display the description
+                    description={data.description} 
                   />
                 </div>
               </Card>
@@ -122,10 +118,10 @@ const CardGrid = () => {
         <div
           style={{
             padding: "20px",
-            height: "auto", // Adjust based on content
+            height: "auto", 
             backgroundColor: "#f0f2f5",
             borderLeft: "1px solid #d9d9d9",
-            overflow: "hidden", // No scrollbar
+            overflow: "hidden", 
           }}
         >
           <h1
@@ -144,7 +140,7 @@ const CardGrid = () => {
                 padding: "15px",
                 marginBottom: "16px",
                 borderRadius: "8px",
-                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)", // Slight shadow for a clean look
+                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)", 
               }}
             >
               <h3 style={{ margin: 0, fontSize: "16px", whiteSpace: "normal" }}>

@@ -72,7 +72,7 @@ const ReportPage = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          color: "black",
+          color: "white",
           fontSize: "20px",
           backgroundColor: "#4D96FF",
         }}

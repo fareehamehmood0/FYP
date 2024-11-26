@@ -264,7 +264,7 @@ const FYPProjects = () => {
           paddingTop:"15px",
           marginBottom: "30px",
           backgroundColor: "#4D96FF",
-          color: "black",
+          color: "white",
         }}
       >
         Projects

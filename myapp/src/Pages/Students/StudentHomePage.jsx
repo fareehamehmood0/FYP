@@ -8,6 +8,7 @@ import StudentEvents from "./StudentEvents";
 import StudentLogout from "./StudentLogout";
 import Studentreport from "./Studentreport";
 import Github from "./Github";
+import Footerpage from "../../Components/Footerpage";
 
 function StudentHomePage() {
   return (
@@ -25,7 +26,9 @@ function StudentHomePage() {
           <Route path="/studentlogout" element={<StudentLogout />}></Route>
         </Routes>
       </div>
+      <Footerpage/>
     </div>
+
     </>
   );
 }

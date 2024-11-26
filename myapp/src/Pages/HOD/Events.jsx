@@ -30,7 +30,7 @@ const EventsPage = () => {
   useEffect(() => {
     const defaultEvents = [
       {
-        name: "Project Kickoff Meeting",
+        name: "Project Kickoff ",
         date: moment().format("YYYY-MM-DD"),
         time: "10:00",
         description: "Initial meeting to discuss project goals and milestones.",
@@ -80,7 +80,7 @@ const EventsPage = () => {
       body: tableRows,
     });
 
-    doc.save("events.pdf");
+    doc.save("Events.pdf");
   };
 
   // Get today's date in YYYY-MM-DD format
@@ -118,7 +118,7 @@ const EventsPage = () => {
           style={{
             marginBottom: "24px",
             backgroundColor: "#4D96FF",
-            color: "black",
+            color: "white",
             textAlign: "center",
             paddingTop: "2px",
             paddingBottom: "2px",
@@ -211,7 +211,7 @@ const EventsPage = () => {
         </div>
 
         {/* Calendar */}
-        <div style={{ marginBottom: "24px" }}>
+        <div style={{ marginBottom: "24px", height:"1000px", width:"1000px"}}>
           <Calendar dateCellRender={dateCellRender} />
         </div>
 
@@ -244,7 +244,7 @@ const EventsPage = () => {
         >
           <Form
             form={form}
-            requiredMark={false} /* Disable the asterisk for required fields */
+            requiredMark={false}
             layout="vertical"
             onFinish={handleCreateEvent}
           >

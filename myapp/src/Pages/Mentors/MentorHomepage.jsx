@@ -8,6 +8,7 @@ import MentorEvents from "./MentorEvents";
 import Mentorreport from "./Mentorreport";
 import MentorLogout from "./MentorLogout";
 import Schedulemeeting from "./Schedulemeeting";
+import Footerpage from "../../Components/Footerpage";
 
 function MentorHomePage() {
   return (
@@ -27,6 +28,7 @@ function MentorHomePage() {
         </Routes>
         </div>
       </div>
+      <Footerpage/>
     </div>
     </>
   );

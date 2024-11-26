@@ -23,7 +23,7 @@ import {
         }}
             items={[
             {
-              label: "Dashbaord",
+              label: "Home",
               icon: <AppstoreOutlined 
               style={{
                 color: "blue",

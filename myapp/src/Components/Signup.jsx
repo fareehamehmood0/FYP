@@ -3,7 +3,6 @@ import {
   Form,
   Input,
   Button,
-  Checkbox,
   Typography,
   Row,
   Col,
@@ -30,14 +29,14 @@ const SignUp = () => {
       align="middle"
       style={{ minHeight: "100vh", background: "#f0f2f5" }}
     >
-      <Col xs={0} sm={12} md={10} lg={8} style={{ textAlign: "center" }}>
+      <Col  lg={8} style={{ textAlign: "center" }}>
         <img
           src="signup1.jpg"
           alt="Signup"
-          style={{ width: "100%", height: "528px", borderRadius: "2px" }}
+          style={{ width: "100%", height: "485px", borderRadius: "2px" }}
         />
       </Col>
-      <Col xs={24} sm={12} md={10} lg={8}>
+      <Col lg={8}>
         <div
           style={{
             padding: "10px",
@@ -45,7 +44,7 @@ const SignUp = () => {
             borderRadius: "2px",
           }}
         >
-          <Title level={3} style={{ textAlign: "center" }}>
+          <Title level={2} style={{ textAlign: "center", color:"#4D96FF" }}>
             Sign Up
           </Title>
           <Form
@@ -57,7 +56,7 @@ const SignUp = () => {
           >
             <Form.Item
               name="name"
-              label="Name"
+              label="Name fo student"
               hasFeedback
               rules={[{ required: true, message: "Please enter your name!" }]}
             >
@@ -113,26 +112,10 @@ const SignUp = () => {
               />
             </Form.Item>
 
-            <Form.Item
-              name="agree"
-              valuePropName="checked"
-              rules={[
-                {
-                  validator: (_, value) =>
-                    value
-                      ? Promise.resolve()
-                      : Promise.reject(
-                          new Error(
-                            "You must agree to the terms and conditions!"
-                          )
-                        ),
-                },
-              ]}
-            ></Form.Item>
 
             <Form.Item
               style={{
-                marginTop: "-10px", 
+                marginTop: "-10px",
               }}
             >
               <Button
